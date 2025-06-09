@@ -55,7 +55,9 @@ Then open `http://localhost:8000/` in your browser.
 ## Checking Market Prices
 
 `market_prices.py` prints the best bid and ask for each outcome of a Polymarket
-market. The script accepts either a full condition ID (the long hexadecimal
+market. Bids and asks returned from the API are sorted from *worst* to *best*,
+so the script looks at the last entry in each list to report the true best
+prices. The script accepts either a full condition ID (the long hexadecimal
 string used by the CLOB API) or the shorter numeric market ID that appears in
 the Polymarket UI. When a numeric ID is provided, the tool searches the most
 recent markets using `get_recent_markets.py` to resolve it to the corresponding

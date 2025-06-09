@@ -64,8 +64,9 @@ def print_bid_ask(market_id: str) -> None:
         token_id = token.get("token_id")
         outcome = token.get("outcome", "")
         book = client.get_order_book(token_id)
-        best_bid: Optional[str] = book.bids[0].price if book.bids else None
-        best_ask: Optional[str] = book.asks[0].price if book.asks else None
+        # Bids and asks are sorted worst-to-best so use the last entry
+        best_bid: Optional[str] = book.bids[-1].price if book.bids else None
+        best_ask: Optional[str] = book.asks[-1].price if book.asks else None
         print(f"Outcome '{outcome}': bid={best_bid}, ask={best_ask}")
 
 
