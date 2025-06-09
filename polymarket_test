@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+"""
+polymarket_smoketest.py
+-----------------------
+Logs in, derives API creds, and fetches the first page of markets.
+No funds move; this is purely a connectivity sanity-check.
+"""
+
+import os
+import sys
+from pprint import pprint
+
+from py_clob_client.client import ClobClient
+from py_clob_client.constants import POLYGON          # = 137
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Mandatory env vars
+# ────────────────────────────────────────────────────────────────────────────────
+try:
+    PK = os.environ["POLY_PRIVATE_KEY"]
+except KeyError:
+    sys.exit("❌  Set POLY_PRIVATE_KEY before running the script.")
+
+SIG_TYPE = int(os.getenv("POLY_SIGNATURE_TYPE", "1"))
+FUNDER   = os.getenv("POLY_FUNDER_ADDRESS") or None   # proxy wallet (if any)
+
+HOST = "https://clob.polymarket.com"                  # mainnet CLOB endpoint
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Initialise client & derive L2 API credentials
+# ────────────────────────────────────────────────────────────────────────────────
+client = ClobClient(
+    host=HOST,
+    key=PK,
+    chain_id=POLYGON,
+    signature_type=SIG_TYPE,
+    funder=FUNDER,
+)
+client.set_api_creds(client.create_or_derive_api_creds())   # one-time per script
+print("✅  L2 credentials set – authenticated as", client.get_address())
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Easiest read-only call that requires auth: paginated market list
+# ────────────────────────────────────────────────────────────────────────────────
+resp = client.get_markets(next_cursor="")   # empty string = first page
+print(f"Markets returned: {resp['count']}")
+if resp["count"]:
+    print("First market summary:")
+    pprint(resp["data"][0])                 # show the very first entry
+
+print("\n✅  Smoke-test finished – keys & addresses are wired correctly.")
