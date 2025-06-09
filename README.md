@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 ## Retrieving Recent Markets
 
-`get_recent_markets.py` fetches all markets created in the last 24 hours using Polymarket's public API.
+`get_recent_markets.py` fetches all markets created in the last 24 hours using Polymarket's public API. The script defaults to the new GraphQL endpoint `https://api.polymarket.xyz/graphql`. Set the `POLYMARKET_API_URL` environment variable to override the endpoint if it changes again.
 
 Run the script with:
 

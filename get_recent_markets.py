@@ -1,7 +1,12 @@
 import requests
 from datetime import datetime, timedelta, timezone
 
-API_URL = "https://client-api.polymarket.com/graphql"
+import os
+
+# Polymarket moved its public GraphQL endpoint to a new domain. Allow overriding
+# the endpoint via the ``POLYMARKET_API_URL`` environment variable so that users
+# can easily update it in the future without modifying the code.
+API_URL = os.getenv("POLYMARKET_API_URL", "https://api.polymarket.xyz/graphql")
 
 QUERY = """
 query($after: Int!) {
@@ -34,8 +39,12 @@ def get_recent_markets(hours=24):
         "variables": {"after": created_after},
     }
 
-    response = requests.post(API_URL, json=payload)
-    response.raise_for_status()
+    try:
+        response = requests.post(API_URL, json=payload)
+        response.raise_for_status()
+    except requests.exceptions.RequestException as exc:
+        raise SystemExit(f"Failed to fetch markets: {exc}") from exc
+
     data = response.json()
     return data["data"]["markets"]
 
