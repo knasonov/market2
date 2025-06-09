@@ -62,6 +62,26 @@ def fetch_latest(limit: int) -> List[Dict[str, Any]]:
     return data["data"] if isinstance(data, dict) else data
 
 
+def find_market_id_by_slug(slug: str, *, search_limit: int = 100) -> str:
+    """Return the numeric market ID that matches *slug*.
+
+    The newest ``search_limit`` markets are fetched using :func:`fetch_latest`.
+    The function prints a short message and returns the ID if a match is found.
+    ``RuntimeError`` is raised when no market uses the provided slug.
+    """
+
+    markets = fetch_latest(search_limit)
+    for market in markets:
+        if market.get("slug") == slug:
+            market_id = str(market.get("id"))
+            print(f"Found slug '{slug}' -> market ID {market_id}")
+            return market_id
+
+    raise RuntimeError(
+        f"Slug '{slug}' not found in last {search_limit} markets"
+    )
+
+
 # --------------------------------------------------------------------------- #
 # CLI / main
 # --------------------------------------------------------------------------- #
@@ -89,12 +109,26 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="output a single compact JSON blob instead of pretty-printing",
     )
+    ap.add_argument(
+        "--find-id",
+        metavar="SLUG",
+        help="search the newest markets for SLUG and print the numeric id",
+    )
     return ap.parse_args()
 
 
 def main() -> None:
     args = parse_args()
     limit = args.limit_flag if args.limit_flag is not None else args.limit
+
+    if args.find_id:
+        try:
+            find_market_id_by_slug(args.find_id, search_limit=limit)
+        except RequestException as exc:
+            sys.exit(f"Request failed: {exc}")
+        except RuntimeError as exc:
+            sys.exit(str(exc))
+        return
 
     try:
         markets = fetch_latest(limit)

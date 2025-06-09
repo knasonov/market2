@@ -34,11 +34,10 @@ def _auth_client() -> ClobClient:
 
 
 def _resolve_market_id(market_id: str, *, search_limit: int = 100) -> str:
-    """Return the condition ID for *market_id*.
+    """Return the condition ID for ``market_id``.
 
-    If *market_id* already looks like a hex condition ID it is returned as-is.
-    Otherwise the most recent markets are searched using ``fetch_latest`` and
-    the matching entry's ``conditionId`` value is returned.
+    ``market_id`` may be a full condition ID, a numeric market ID, or a slug.
+    The most recent markets are searched when resolution is required.
     """
 
     if market_id.startswith("0x"):
@@ -46,10 +45,14 @@ def _resolve_market_id(market_id: str, *, search_limit: int = 100) -> str:
 
     markets = fetch_latest(search_limit)
     for market in markets:
-        if str(market.get("id")) == str(market_id):
+        if str(market.get("id")) == str(market_id) or market.get("slug") == market_id:
+            if market.get("slug") == market_id:
+                print(f"Slug '{market_id}' -> market ID {market.get('id')}")
             return market.get("conditionId")
 
-    raise RuntimeError(f"Market {market_id} not found in last {search_limit} markets")
+    raise RuntimeError(
+        f"Market {market_id} not found in last {search_limit} markets"
+    )
 
 def print_bid_ask(market_id: str) -> None:
     """Fetch market and print best bid and ask for each outcome."""
