@@ -33,7 +33,7 @@ def _auth_client() -> ClobClient:
     return client
 
 
-def _resolve_market_id(market_id: str, *, search_limit: int = 100) -> str:
+def _resolve_market_id(market_id: str, *, search_limit: int = 10000) -> str:
     """Return the condition ID for ``market_id``.
 
     ``market_id`` may be a full condition ID, a numeric market ID, or a slug.

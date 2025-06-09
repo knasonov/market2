@@ -62,14 +62,14 @@ def fetch_latest(limit: int) -> List[Dict[str, Any]]:
     return data["data"] if isinstance(data, dict) else data
 
 
-def find_market_id_by_slug(slug: str, *, search_limit: int = 100) -> str:
+def find_market_id_by_slug(slug: str, *, search_limit: int = 10000) -> str:
     """Return the numeric market ID that matches *slug*.
 
     The newest ``search_limit`` markets are fetched using :func:`fetch_latest`.
     The function prints a short message and returns the ID if a match is found.
     ``RuntimeError`` is raised when no market uses the provided slug.
     """
-
+    print(search_limit)
     markets = fetch_latest(search_limit)
     for market in markets:
         if market.get("slug") == slug:
@@ -94,7 +94,7 @@ def parse_args() -> argparse.Namespace:
         "limit",
         nargs="?",
         type=int,
-        default=10,
+        default=10000,
         help="number of newest markets to fetch (default 10)",
     )
     ap.add_argument(
