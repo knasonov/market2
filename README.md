@@ -22,3 +22,16 @@ python get_recent_markets.py
 
 The output lists market IDs, their slugs, and creation times. The script can be
 imported as a module for further processing.
+
+## Web Interface
+
+A small FastAPI app exposes recent Polymarket markets and serves a simple HTML
+page that lists the last 50 markets in a table.
+
+Start the development server with:
+
+```bash
+uvicorn app:app --reload
+```
+
+Then open `http://localhost:8000/` in your browser.
