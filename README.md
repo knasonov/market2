@@ -34,4 +34,10 @@ Start the development server with:
 uvicorn app:app --reload
 ```
 
+Or simply run the application module directly:
+
+```bash
+python app.py
+```
+
 Then open `http://localhost:8000/` in your browser.
