@@ -2,12 +2,14 @@
 """Utility to print bid/ask for a Polymarket market."""
 
 import os
-from typing import Optional
+from typing import Optional, Dict, Any
 
 from get_recent_markets import fetch_latest
 
 from py_clob_client.client import ClobClient
 from py_clob_client.constants import POLYGON
+from py_clob_client.clob_types import OrderArgs, OrderType
+from py_clob_client.order_builder.constants import BUY
 
 HOST = "https://clob.polymarket.com"
 
@@ -68,6 +70,40 @@ def print_bid_ask(market_id: str) -> None:
         best_bid: Optional[str] = book.bids[-1].price if book.bids else None
         best_ask: Optional[str] = book.asks[-1].price if book.asks else None
         print(f"Outcome '{outcome}': bid={best_bid}, ask={best_ask}")
+
+
+def buy1no(market: str) -> Dict[str, Any]:
+    """Buy 1 share of the 'No' outcome of *market* at the current ask price."""
+
+    client = _auth_client()
+    condition_id = _resolve_market_id(market)
+    market_info = client.get_market(condition_id)
+
+    # Find the token ID for the "No" outcome
+    no_token_id: Optional[str] = None
+    for token in market_info.get("tokens", []):
+        if token.get("outcome", "").lower() == "no":
+            no_token_id = token.get("token_id")
+            break
+
+    if not no_token_id:
+        raise RuntimeError(f"'No' outcome not found for market {market}")
+
+    # Honour market minimum size
+    size = max(1.0, float(market_info.get("orderMinSize", 1)))
+
+    # Determine the best ask for the No token
+    book = client.get_order_book(no_token_id)
+    price = float(book.asks[-1].price) if book.asks else 1.0
+
+    order_args = OrderArgs(
+        price=price,
+        size=size,
+        side=BUY,
+        token_id=no_token_id,
+    )
+    signed = client.create_order(order_args)
+    return client.post_order(signed, OrderType.GTC)
 
 
 if __name__ == "__main__":
