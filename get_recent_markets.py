@@ -3,10 +3,19 @@ from datetime import datetime, timedelta, timezone
 
 import os
 
-# Polymarket moved its public GraphQL endpoint to a new domain. Allow overriding
-# the endpoint via the ``POLYMARKET_API_URL`` environment variable so that users
-# can easily update it in the future without modifying the code.
-API_URL = os.getenv("POLYMARKET_API_URL", "https://api.polymarket.xyz/graphql")
+# The public GraphQL endpoint occasionally moves.  Allow users to specify a
+# preferred URL via the ``POLYMARKET_API_URL`` environment variable while
+# providing a couple of sensible fallbacks.  ``API_URLS`` is a list so we can
+# try each endpoint until one succeeds.
+DEFAULT_API_URLS = [
+    "https://api.polymarket.xyz/graphql",
+    # An alternative endpoint that has been used in the past.  Requests will
+    # fall back to this if the primary one fails.
+    "https://polymarket.com/api/graphql",
+]
+
+env_url = os.getenv("POLYMARKET_API_URL")
+API_URLS = [env_url] if env_url else DEFAULT_API_URLS
 
 QUERY = """
 query($after: Int!) {
@@ -39,14 +48,20 @@ def get_recent_markets(hours=24):
         "variables": {"after": created_after},
     }
 
-    try:
-        response = requests.post(API_URL, json=payload)
-        response.raise_for_status()
-    except requests.exceptions.RequestException as exc:
-        raise SystemExit(f"Failed to fetch markets: {exc}") from exc
+    last_exc = None
+    for url in API_URLS:
+        try:
+            response = requests.post(url, json=payload, timeout=10)
+            response.raise_for_status()
+            data = response.json()
+            return data["data"]["markets"]
+        except requests.exceptions.RequestException as exc:
+            last_exc = exc
+            continue
 
-    data = response.json()
-    return data["data"]["markets"]
+    raise SystemExit(
+        f"Failed to fetch markets from available endpoints: {last_exc}"
+    )
 
 
 def main():
