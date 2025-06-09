@@ -23,6 +23,16 @@ python get_recent_markets.py
 The output lists market IDs, their slugs, and creation times. The script can be
 imported as a module for further processing.
 
+To resolve a market's numeric ID when you only know its slug, use the
+``--find-id`` option:
+
+```bash
+python get_recent_markets.py --find-id mlb-wsh-nym-2025-06-10
+```
+
+This searches the most recent markets (use ``--limit`` to adjust the window)
+and prints the ID if a match is found.
+
 ## Web Interface
 
 A small FastAPI app exposes recent Polymarket markets and serves a simple HTML
