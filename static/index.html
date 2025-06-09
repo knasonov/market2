@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recent Polymarket Markets</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 4px; text-align: left; }
+    </style>
+</head>
+<body>
+    <h1>Last 50 Polymarket Markets</h1>
+    <table id="markets">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Slug</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        async function loadMarkets() {
+            try {
+                const response = await fetch('/api/markets?limit=50');
+                const data = await response.json();
+                const tbody = document.querySelector('#markets tbody');
+                data.forEach(mkt => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${mkt.id}</td><td>${mkt.title}</td><td>${mkt.slug}</td><td>${mkt.createdAt}</td>`;
+                    tbody.appendChild(row);
+                });
+            } catch (err) {
+                console.error('Failed to load markets', err);
+            }
+        }
+        loadMarkets();
+    </script>
+</body>
+</html>
