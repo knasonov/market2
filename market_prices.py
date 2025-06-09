@@ -4,6 +4,8 @@
 import os
 from typing import Optional
 
+from get_recent_markets import fetch_latest
+
 from py_clob_client.client import ClobClient
 from py_clob_client.constants import POLYGON
 
@@ -31,10 +33,29 @@ def _auth_client() -> ClobClient:
     return client
 
 
+def _resolve_market_id(market_id: str, *, search_limit: int = 100) -> str:
+    """Return the condition ID for *market_id*.
+
+    If *market_id* already looks like a hex condition ID it is returned as-is.
+    Otherwise the most recent markets are searched using ``fetch_latest`` and
+    the matching entry's ``conditionId`` value is returned.
+    """
+
+    if market_id.startswith("0x"):
+        return market_id
+
+    markets = fetch_latest(search_limit)
+    for market in markets:
+        if str(market.get("id")) == str(market_id):
+            return market.get("conditionId")
+
+    raise RuntimeError(f"Market {market_id} not found in last {search_limit} markets")
+
 def print_bid_ask(market_id: str) -> None:
     """Fetch market and print best bid and ask for each outcome."""
     client = _auth_client()
-    market = client.get_market(market_id)
+    condition_id = _resolve_market_id(market_id)
+    market = client.get_market(condition_id)
 
     for token in market.get("tokens", []):
         token_id = token.get("token_id")
