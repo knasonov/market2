@@ -15,6 +15,14 @@ from __future__ import annotations
 import sys
 import time
 from typing import Any, Dict, List
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    filename="robot_v1_log.txt",
+    format="%(message)s",
+    filemode="a",
+)
 
 from trading_helpers import (
     buy_no,
@@ -40,27 +48,27 @@ def run_robot(market: str, t_work: int, *, max_amount: float = 100.0) -> None:
 
     while time.time() < end_ts:
         cycle_ts = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-        print(f"[{cycle_ts}] --- New cycle ---")
+        logging.info(f"[{cycle_ts}] --- New cycle ---")
         try:
             positions = get_positions(market)
             no_pos = float(positions.get("no", 0.0))
-            print(f"[{cycle_ts}] Current 'No' position: {no_pos:.2f} shares")
+            logging.info(f"[{cycle_ts}] Current 'No' position: {no_pos:.2f} shares")
 
             spread = get_bid_ask_spread(market).get("no", {})
             best_bid = spread.get("bid")
             best_ask = spread.get("ask")
             if best_bid is None or best_ask is None:
-                print(f"[{cycle_ts}] Order book empty, sleeping")
+                logging.info(f"[{cycle_ts}] Order book empty, sleeping")
                 time.sleep(60)
                 continue
 
-            print(
+            logging.info(
                 f"[{cycle_ts}] Best bid: {best_bid}, best ask: {best_ask}"
             )
 
             buy_price = round(best_ask - 0.01, 2)
             sell_price = round(best_bid + 0.01, 2)
-            print(
+            logging.info(
                 f"[{cycle_ts}] Target buy price: {buy_price}, target sell price: {sell_price}"
             )
 
@@ -76,18 +84,18 @@ def run_robot(market: str, t_work: int, *, max_amount: float = 100.0) -> None:
                     f"{o.get('side')} {o.get('size')}@{o.get('price')}"
                     for o in open_orders
                 ]
-                print(f"[{cycle_ts}] Open orders: {', '.join(summary)}")
+                logging.info(f"[{cycle_ts}] Open orders: {', '.join(summary)}")
             else:
-                print(f"[{cycle_ts}] No open orders")
+                logging.info(f"[{cycle_ts}] No open orders")
 
             prices_ok = all(_has_order(open_orders, s, p) for s, p, _ in desired)
 
             if not prices_ok:
-                print(f"[{cycle_ts}] Orders not at desired prices – replacing")
+                logging.info(f"[{cycle_ts}] Orders not at desired prices – replacing")
                 cancel_resp = cancel_all_orders()
-                print(f"[{cycle_ts}] cancel_all_orders() -> {cancel_resp}")
+                logging.info(f"[{cycle_ts}] cancel_all_orders() -> {cancel_resp}")
                 for side, price, size in desired:
-                    print(
+                    logging.info(
                         f"[{cycle_ts}] Placing {side} order for {size:.2f} shares at {price}"
                     )
                     if side == "BUY":
@@ -98,12 +106,12 @@ def run_robot(market: str, t_work: int, *, max_amount: float = 100.0) -> None:
                         resp = sell_no(
                             market=market, x_cents_above_bid=1, size=size
                         )
-                    print(f"[{cycle_ts}] Order response: {resp}")
+                    logging.info(f"[{cycle_ts}] Order response: {resp}")
             else:
-                print(f"[{cycle_ts}] Orders already at best prices")
+                logging.info(f"[{cycle_ts}] Orders already at best prices")
 
         except Exception as exc:
-            print(f"[{cycle_ts}] Error during cycle: {exc}")
+            logging.exception(f"[{cycle_ts}] Error during cycle: {exc}")
 
         time.sleep(60)
 
