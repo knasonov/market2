@@ -2,12 +2,33 @@
 
 from __future__ import annotations
 
-import json
 import time
-from typing import Set
+from typing import Dict, Set
 
 from market_prices import _auth_client
 from telegram1 import send_telegram_message
+
+
+def _summarise_trade(trade: Dict[str, object]) -> str:
+    """Return a short summary like ``"Bought 100 No at 91c"``."""
+
+    side = str(trade.get("side", "")).upper()
+    action = "Bought" if side == "BUY" else "Sold"
+
+    size = trade.get("size")
+    try:
+        size = float(size) / 1_000_000 if size is not None else 0.0
+    except Exception:
+        size = 0.0
+
+    price = trade.get("price")
+    try:
+        price = float(price) if price is not None else 0.0
+    except Exception:
+        price = 0.0
+
+    price_cents = round(price * 100)
+    return f"{action} {size:.0f} No at {price_cents}c"
 
 
 def main() -> None:
@@ -22,7 +43,7 @@ def main() -> None:
             for trade in trades:
                 trade_id = str(trade.get("id"))
                 if trade_id not in seen_ids:
-                    msg = f"Filled trade: {json.dumps(trade)}"
+                    msg = _summarise_trade(trade)
                     send_telegram_message(msg)
                     seen_ids.add(trade_id)
         except Exception as exc:
