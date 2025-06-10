@@ -9,7 +9,7 @@ from get_recent_markets import fetch_latest
 from py_clob_client.client import ClobClient
 from py_clob_client.constants import POLYGON
 from py_clob_client.clob_types import OrderArgs, OrderType
-from py_clob_client.order_builder.constants import BUY
+from py_clob_client.order_builder.constants import BUY, SELL
 
 HOST = "https://clob.polymarket.com"
 
@@ -103,6 +103,81 @@ def buyNo(
     return {"placed": placed_resp, "cancel": cancel_resp}
 
 
+def sellNo(
+    market: str,
+    x_cents_above_bid: int,
+    cancel_after_secs: int,
+    *,
+    size: Optional[float] = None,
+) -> Dict[str, Any]:
+    """Sell the "No" outcome slightly above the best bid and cancel later.
+
+    Parameters
+    ----------
+    market : str
+        Market slug, numeric ID, or full condition ID.
+    x_cents_above_bid : int
+        How many cents above the best bid to quote.
+    cancel_after_secs : int
+        Seconds to wait before cancelling the order if still open.
+    size : float, optional
+        Number of shares to sell; defaults to the market minimum.
+
+    Returns
+    -------
+    Dict[str, Any]
+        {"placed": POST /order response, "cancel": DELETE /order response}
+    """
+
+    client = _auth_client()
+    condition_id = _resolve_market_id(market)
+    market_info = client.get_market(condition_id)
+
+    # locate the "No" token
+    no_token_id: Optional[str] = None
+    for token in market_info.get("tokens", []):
+        if token.get("outcome", "").lower() == "no":
+            no_token_id = token.get("token_id")
+            break
+    if no_token_id is None:
+        raise RuntimeError(f"'No' outcome not found for market {market!r}")
+
+    if size is None:
+        size = max(2.0, float(market_info.get("orderMinSize", 1)))
+
+    book = client.get_order_book(no_token_id)
+    if not book.bids:
+        raise RuntimeError("No bids to quote against – order book empty.")
+
+    best_bid = Decimal(str(book.bids[-1].price))
+    delta = Decimal(x_cents_above_bid) / Decimal("100")
+    price = best_bid + delta
+    if price > Decimal("0.99"):
+        price = Decimal("0.99")
+
+    order_args = OrderArgs(
+        price=float(price),
+        size=float(size),
+        side=SELL,
+        token_id=no_token_id,
+    )
+    signed = client.create_order(order_args)
+    placed_resp = client.post_order(signed, OrderType.GTC)
+
+    order_id = placed_resp.get("orderId")
+    if not order_id:
+        return {"placed": placed_resp, "cancel": None}
+
+    time.sleep(cancel_after_secs*1000)
+
+    try:
+        cancel_resp = client.cancel(order_id=order_id)
+    except Exception as exc:
+        cancel_resp = {"error": str(exc)}
+
+    return {"placed": placed_resp, "cancel": cancel_resp}
+
+
 
 
 
@@ -162,6 +237,15 @@ def print_bid_ask(market_id: str) -> None:
         best_bid: Optional[str] = book.bids[-1].price if book.bids else None
         best_ask: Optional[str] = book.asks[-1].price if book.asks else None
         print(f"Outcome '{outcome}': bid={best_bid}, ask={best_ask}")
+
+
+def cancel_all_orders() -> Dict[str, Any]:
+    """Cancel all open orders for the authenticated user."""
+    client = _auth_client()
+    try:
+        return client.cancel_all()
+    except Exception as exc:
+        return {"error": str(exc)}
 
 
 def buy2no(market: str) -> Dict[str, Any]:
