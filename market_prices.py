@@ -2,7 +2,7 @@
 """Utility to print bid/ask for a Polymarket market."""
 
 import os
-from typing import Optional, Dict, Any
+from typing import Dict, Any, Optional
 
 from get_recent_markets import fetch_latest
 
@@ -13,20 +13,16 @@ from py_clob_client.order_builder.constants import BUY, SELL
 
 HOST = "https://clob.polymarket.com"
 
-import time
 from decimal import Decimal
-from typing import Dict, Any, Optional
 
 def buyNo(
     market: str,
     x_cents_below_ask: int,
-    cancel_after_secs: int,
     *,
     size: Optional[float] = None,
 ) -> Dict[str, Any]:
     """
-    Place a limit-buy on the “No” outcome of *market* at (ask − x_cents_below_ask)
-    and cancel it after *cancel_after_secs* seconds.
+    Place a limit-buy on the “No” outcome of *market* at (ask − x_cents_below_ask).
 
     Parameters
     ----------
@@ -34,18 +30,13 @@ def buyNo(
         Market slug, numeric ID, or full condition ID.
     x_cents_below_ask : int
         How many cents below the current best ask to quote (e.g. 2 → 0.02 USDC).
-    cancel_after_secs : int
-        Seconds to wait before cancelling the order if it is still open.
     size : float, optional
         Number of shares to buy.  If omitted the market’s minimum size is used.
 
     Returns
     -------
     Dict[str, Any]
-        {
-            "placed":  response from POST /order,
-            "cancel":  response from DELETE /order  (or None if already filled)
-        }
+        Response from POST /order.
     """
     # --- initialise client and resolve market ---------------------------------
     client = _auth_client()
@@ -87,30 +78,16 @@ def buyNo(
     signed = client.create_order(order_args)
     placed_resp = client.post_order(signed, OrderType.GTC)
 
-    order_id = placed_resp.get("orderId")
-    if not order_id:
-        # placement failed – nothing to cancel
-        return {"placed": placed_resp, "cancel": None}
-
-    # --- wait y seconds then attempt cancel -----------------------------------
-    time.sleep(cancel_after_secs*1000)
-
-    try:
-        cancel_resp = client.cancel(order_id=order_id)
-    except Exception as exc:  # already filled or cancel failed
-        cancel_resp = {"error": str(exc)}
-
-    return {"placed": placed_resp, "cancel": cancel_resp}
+    return placed_resp
 
 
 def sellNo(
     market: str,
     x_cents_above_bid: int,
-    cancel_after_secs: int,
     *,
     size: Optional[float] = None,
 ) -> Dict[str, Any]:
-    """Sell the "No" outcome slightly above the best bid and cancel later.
+    """Sell the "No" outcome slightly above the best bid.
 
     Parameters
     ----------
@@ -118,15 +95,13 @@ def sellNo(
         Market slug, numeric ID, or full condition ID.
     x_cents_above_bid : int
         How many cents above the best bid to quote.
-    cancel_after_secs : int
-        Seconds to wait before cancelling the order if still open.
     size : float, optional
         Number of shares to sell; defaults to the market minimum.
 
     Returns
     -------
     Dict[str, Any]
-        {"placed": POST /order response, "cancel": DELETE /order response}
+        Response from POST /order
     """
 
     client = _auth_client()
@@ -164,18 +139,7 @@ def sellNo(
     signed = client.create_order(order_args)
     placed_resp = client.post_order(signed, OrderType.GTC)
 
-    order_id = placed_resp.get("orderId")
-    if not order_id:
-        return {"placed": placed_resp, "cancel": None}
-
-    time.sleep(cancel_after_secs*1000)
-
-    try:
-        cancel_resp = client.cancel(order_id=order_id)
-    except Exception as exc:
-        cancel_resp = {"error": str(exc)}
-
-    return {"placed": placed_resp, "cancel": cancel_resp}
+    return placed_resp
 
 
 
@@ -293,10 +257,9 @@ if __name__ == "__main__":
     current_market = "0xc3ede0572bba2901df68aac861e1be5a2de742060237d8cf85085e596d210eff"
     
     """
-    placed, canceled = buyNo(
+    placed = buyNo(
         market=current_market,
         x_cents_below_ask=1,
-        cancel_after_secs=100,
         size=100.0,
     )
     """
@@ -306,7 +269,6 @@ if __name__ == "__main__":
     sellNo(
         market=current_market,
         x_cents_above_bid=1,
-        cancel_after_secs=100,
         size=95.0,
     )
     """
