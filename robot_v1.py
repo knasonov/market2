@@ -6,6 +6,8 @@ of "No" shares.  If the position is below this target it bids one cent
 below the best ask for the difference.  When holding any "No" tokens it
 offers them one cent above the best bid.
 
+Orders smaller than ``min_amount`` are skipped to avoid tiny trades.
+
 The order book is checked every minute.  If the working orders are no
 longer best bid/ask, all orders are cancelled and new ones are placed.
 """
@@ -48,11 +50,14 @@ def _summarise_trade(trade: Dict[str, object]) -> str:
     """Return a short summary like ``"Bought 100 No at 91c"``."""
 
     side = str(trade.get("side", "")).upper()
-    action = "Bought" if side == "BUY" else "Sold"
+    # The trade side returned by the API is opposite of our action
+    # when trading "No" tokens.
+    action = "Sold" if side == "BUY" else "Bought"
 
     size = trade.get("size")
     try:
-        size = float(size) / 1_000_000 if size is not None else 0.0
+        # ``get_recent_trades`` already converts size to token units
+        size = float(size) if size is not None else 0.0
     except Exception:
         size = 0.0
 
@@ -66,7 +71,13 @@ def _summarise_trade(trade: Dict[str, object]) -> str:
     return f"{action} {size:.0f} No at {price_cents}c"
 
 
-def run_robot(market: str, t_work: int, *, max_amount: float = 100.0) -> None:
+def run_robot(
+    market: str,
+    t_work: int,
+    *,
+    max_amount: float = 100.0,
+    min_amount: float = 5.0,
+) -> None:
     """Run the maker bot on ``market`` for ``t_work`` seconds."""
     end_ts = time.time() + t_work
     seen_ids: Set[str] = set()
@@ -99,9 +110,21 @@ def run_robot(market: str, t_work: int, *, max_amount: float = 100.0) -> None:
 
             desired: List[tuple[str, float, float]] = []
             if no_pos < max_amount:
-                desired.append(("BUY", buy_price, max_amount - no_pos))
+                buy_size = max_amount - no_pos
+                if buy_size >= min_amount:
+                    desired.append(("BUY", buy_price, buy_size))
+                else:
+                    logging.info(
+                        f"[{cycle_ts}] Buy size {buy_size:.2f} below minimum"
+                    )
             if no_pos > 0:
-                desired.append(("SELL", sell_price, no_pos))
+                sell_size = no_pos
+                if sell_size >= min_amount:
+                    desired.append(("SELL", sell_price, sell_size))
+                else:
+                    logging.info(
+                        f"[{cycle_ts}] Sell size {sell_size:.2f} below minimum"
+                    )
 
             open_orders = get_open_orders(market)
             if open_orders:
@@ -152,6 +175,9 @@ def run_robot(market: str, t_work: int, *, max_amount: float = 100.0) -> None:
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        sys.exit(f"Usage: {sys.argv[0]} MARKET_ID WORK_TIME_SECONDS")
+        sys.exit(
+            f"Usage: {sys.argv[0]} MARKET_ID WORK_TIME_SECONDS [MIN_AMOUNT]"
+        )
 
-    run_robot(sys.argv[1], int(sys.argv[2]))
+    min_amt = float(sys.argv[3]) if len(sys.argv) > 3 else 5.0
+    run_robot(sys.argv[1], int(sys.argv[2]), min_amount=min_amt)
