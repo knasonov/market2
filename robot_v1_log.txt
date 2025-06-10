@@ -1,0 +1,1019 @@
+[2025-06-10 19:22:39] --- New cycle ---
+[2025-06-10 19:22:39] Current 'No' position: 100.00 shares
+[2025-06-10 19:22:39] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:22:39] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:22:39] Open orders: SELL None@0.91
+[2025-06-10 19:22:39] Orders already at best prices
+[2025-06-10 19:23:40] --- New cycle ---
+[2025-06-10 19:23:40] Current 'No' position: 0.00 shares
+[2025-06-10 19:23:40] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:23:40] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:23:40] No open orders
+[2025-06-10 19:23:40] Orders not at desired prices – replacing
+[2025-06-10 19:23:40] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 19:23:40] Placing BUY order for 100.00 shares at 0.91
+[2025-06-10 19:23:40] Order response: {'errorMsg': '', 'orderID': '0x2152ad46c04812a9be6b103be95f86bf14d381a3473aaa58ea8337717598172c', 'takingAmount': '', 'makingAmount': '', 'status': 'live', 'transactionsHashes': None, 'success': True}
+[2025-06-10 19:24:43] --- New cycle ---
+[2025-06-10 19:24:43] Current 'No' position: 0.00 shares
+[2025-06-10 19:24:43] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:24:43] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:24:43] Open orders: BUY None@0.91
+[2025-06-10 19:24:43] Orders already at best prices
+[2025-06-10 19:25:44] --- New cycle ---
+[2025-06-10 19:25:44] Current 'No' position: 0.00 shares
+[2025-06-10 19:25:44] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:25:44] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:25:44] Open orders: BUY None@0.91
+[2025-06-10 19:25:44] Orders already at best prices
+[2025-06-10 19:26:45] --- New cycle ---
+[2025-06-10 19:26:45] Current 'No' position: 0.00 shares
+[2025-06-10 19:26:45] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:26:45] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:26:45] Open orders: BUY None@0.91
+[2025-06-10 19:26:45] Orders already at best prices
+[2025-06-10 19:27:46] --- New cycle ---
+[2025-06-10 19:27:46] Current 'No' position: 0.00 shares
+[2025-06-10 19:27:46] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:27:46] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:27:46] Open orders: BUY None@0.91
+[2025-06-10 19:27:46] Orders already at best prices
+[2025-06-10 19:28:47] --- New cycle ---
+[2025-06-10 19:28:47] Current 'No' position: 0.00 shares
+[2025-06-10 19:28:47] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:28:47] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:28:47] Open orders: BUY None@0.91
+[2025-06-10 19:28:47] Orders already at best prices
+[2025-06-10 19:29:59] --- New cycle ---
+[2025-06-10 19:29:59] Current 'No' position: 0.00 shares
+[2025-06-10 19:29:59] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:29:59] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:29:59] No open orders
+[2025-06-10 19:29:59] Orders not at desired prices – replacing
+[2025-06-10 19:29:59] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 19:29:59] Placing BUY order for 100.00 shares at 0.91
+[2025-06-10 19:29:59] Order response: {'errorMsg': '', 'orderID': '0xff5ecd2b827de2d8932429651e663a6a03d5b399941069435645f0c3403b498f', 'takingAmount': '', 'makingAmount': '', 'status': 'live', 'transactionsHashes': None, 'success': True}
+[2025-06-10 19:31:01] --- New cycle ---
+[2025-06-10 19:31:01] Current 'No' position: 0.00 shares
+[2025-06-10 19:31:01] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:31:01] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:31:01] Open orders: BUY None@0.91
+[2025-06-10 19:31:01] Orders already at best prices
+[2025-06-10 19:32:02] --- New cycle ---
+[2025-06-10 19:32:02] Current 'No' position: 0.00 shares
+[2025-06-10 19:32:02] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:32:02] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:32:02] Open orders: BUY None@0.91
+[2025-06-10 19:32:02] Orders already at best prices
+[2025-06-10 19:33:03] --- New cycle ---
+[2025-06-10 19:33:03] Current 'No' position: 0.00 shares
+[2025-06-10 19:33:03] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:33:03] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:33:03] Open orders: BUY None@0.91
+[2025-06-10 19:33:03] Orders already at best prices
+[2025-06-10 19:34:04] --- New cycle ---
+[2025-06-10 19:34:04] Current 'No' position: 0.00 shares
+[2025-06-10 19:34:04] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:34:04] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:34:04] Open orders: BUY None@0.91
+[2025-06-10 19:34:04] Orders already at best prices
+[2025-06-10 19:35:06] --- New cycle ---
+[2025-06-10 19:35:06] Current 'No' position: 0.00 shares
+[2025-06-10 19:35:06] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:35:06] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:35:06] Open orders: BUY None@0.91
+[2025-06-10 19:35:06] Orders already at best prices
+[2025-06-10 19:36:07] --- New cycle ---
+[2025-06-10 19:36:07] Current 'No' position: 0.00 shares
+[2025-06-10 19:36:07] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:36:07] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:36:07] Open orders: BUY None@0.91
+[2025-06-10 19:36:07] Orders already at best prices
+[2025-06-10 19:37:08] --- New cycle ---
+[2025-06-10 19:37:08] Current 'No' position: 0.00 shares
+[2025-06-10 19:37:08] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:37:08] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:37:08] Open orders: BUY None@0.91
+[2025-06-10 19:37:08] Orders already at best prices
+[2025-06-10 19:38:10] --- New cycle ---
+[2025-06-10 19:38:10] Current 'No' position: 0.00 shares
+[2025-06-10 19:38:10] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:38:10] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:38:10] Open orders: BUY None@0.91
+[2025-06-10 19:38:10] Orders already at best prices
+[2025-06-10 19:39:11] --- New cycle ---
+[2025-06-10 19:39:11] Current 'No' position: 0.00 shares
+[2025-06-10 19:39:11] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:39:11] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:39:11] Open orders: BUY None@0.91
+[2025-06-10 19:39:11] Orders already at best prices
+[2025-06-10 19:40:12] --- New cycle ---
+[2025-06-10 19:40:12] Current 'No' position: 0.00 shares
+[2025-06-10 19:40:12] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:40:12] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:40:12] Open orders: BUY None@0.91
+[2025-06-10 19:40:12] Orders already at best prices
+[2025-06-10 19:41:13] --- New cycle ---
+[2025-06-10 19:41:13] Current 'No' position: 0.00 shares
+[2025-06-10 19:41:13] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:41:13] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:41:13] Open orders: BUY None@0.91
+[2025-06-10 19:41:13] Orders already at best prices
+[2025-06-10 19:42:14] --- New cycle ---
+[2025-06-10 19:42:14] Current 'No' position: 0.00 shares
+[2025-06-10 19:42:14] Best bid: 0.91, best ask: 0.92
+[2025-06-10 19:42:14] Target buy price: 0.91, target sell price: 0.92
+[2025-06-10 19:42:14] Open orders: BUY None@0.91
+[2025-06-10 19:42:14] Orders already at best prices
+[2025-06-10 19:44:33] --- New cycle ---
+[2025-06-10 19:44:33] Current 'No' position: 100.00 shares
+[2025-06-10 19:44:33] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:44:33] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:44:33] No open orders
+[2025-06-10 19:44:33] Orders not at desired prices – replacing
+[2025-06-10 19:44:33] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 19:44:33] Placing SELL order for 100.00 shares at 0.91
+[2025-06-10 19:44:33] Order response: {'errorMsg': '', 'orderID': '0x81db29eba04d02a19832b6a1938b97d6563a88ab4433c15cc35d3db2753a0506', 'takingAmount': '', 'makingAmount': '', 'status': 'live', 'transactionsHashes': None, 'success': True}
+[2025-06-10 19:45:35] --- New cycle ---
+[2025-06-10 19:45:35] Current 'No' position: 100.00 shares
+[2025-06-10 19:45:35] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:45:35] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:45:35] Open orders: SELL None@0.91
+[2025-06-10 19:45:35] Orders already at best prices
+[2025-06-10 19:46:37] --- New cycle ---
+[2025-06-10 19:46:37] Current 'No' position: 100.00 shares
+[2025-06-10 19:46:37] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:46:37] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:46:37] Open orders: SELL None@0.91
+[2025-06-10 19:46:37] Orders already at best prices
+[2025-06-10 19:47:39] --- New cycle ---
+[2025-06-10 19:47:39] Current 'No' position: 100.00 shares
+[2025-06-10 19:47:39] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:47:39] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:47:39] Open orders: SELL None@0.91
+[2025-06-10 19:47:39] Orders already at best prices
+[2025-06-10 19:48:41] --- New cycle ---
+[2025-06-10 19:48:41] Current 'No' position: 100.00 shares
+[2025-06-10 19:48:41] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:48:41] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:48:41] Open orders: SELL None@0.91
+[2025-06-10 19:48:41] Orders already at best prices
+[2025-06-10 19:49:42] --- New cycle ---
+[2025-06-10 19:49:42] Current 'No' position: 100.00 shares
+[2025-06-10 19:49:42] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:49:42] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:49:42] Open orders: SELL None@0.91
+[2025-06-10 19:49:42] Orders already at best prices
+[2025-06-10 19:50:43] --- New cycle ---
+[2025-06-10 19:50:43] Current 'No' position: 100.00 shares
+[2025-06-10 19:50:43] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:50:43] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:50:43] Open orders: SELL None@0.91
+[2025-06-10 19:50:43] Orders already at best prices
+[2025-06-10 19:51:45] --- New cycle ---
+[2025-06-10 19:51:45] Current 'No' position: 100.00 shares
+[2025-06-10 19:51:45] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:51:45] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:51:45] Open orders: SELL None@0.91
+[2025-06-10 19:51:45] Orders already at best prices
+[2025-06-10 19:52:47] --- New cycle ---
+[2025-06-10 19:52:47] Current 'No' position: 100.00 shares
+[2025-06-10 19:52:47] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:52:47] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:52:47] Open orders: SELL None@0.91
+[2025-06-10 19:52:47] Orders already at best prices
+[2025-06-10 19:53:48] --- New cycle ---
+[2025-06-10 19:53:48] Current 'No' position: 100.00 shares
+[2025-06-10 19:53:48] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:53:48] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:53:48] Open orders: SELL None@0.91
+[2025-06-10 19:53:48] Orders already at best prices
+[2025-06-10 19:54:49] --- New cycle ---
+[2025-06-10 19:54:49] Current 'No' position: 100.00 shares
+[2025-06-10 19:54:49] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:54:49] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:54:49] Open orders: SELL None@0.91
+[2025-06-10 19:54:49] Orders already at best prices
+[2025-06-10 19:55:51] --- New cycle ---
+[2025-06-10 19:55:51] Current 'No' position: 100.00 shares
+[2025-06-10 19:55:51] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:55:51] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:55:51] Open orders: SELL None@0.91
+[2025-06-10 19:55:51] Orders already at best prices
+[2025-06-10 19:56:53] --- New cycle ---
+[2025-06-10 19:56:53] Current 'No' position: 100.00 shares
+[2025-06-10 19:56:53] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:56:53] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:56:53] Open orders: SELL None@0.91
+[2025-06-10 19:56:53] Orders already at best prices
+[2025-06-10 19:58:01] --- New cycle ---
+[2025-06-10 19:58:01] Current 'No' position: 100.00 shares
+[2025-06-10 19:58:01] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:58:01] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:58:01] Open orders: SELL None@0.91
+[2025-06-10 19:58:01] Orders already at best prices
+[2025-06-10 19:59:02] --- New cycle ---
+[2025-06-10 19:59:02] Current 'No' position: 100.00 shares
+[2025-06-10 19:59:02] Best bid: 0.9, best ask: 0.91
+[2025-06-10 19:59:02] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 19:59:02] No open orders
+[2025-06-10 19:59:02] Orders not at desired prices – replacing
+[2025-06-10 19:59:02] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 19:59:02] Placing SELL order for 100.00 shares at 0.91
+[2025-06-10 19:59:02] Order response: {'errorMsg': '', 'orderID': '0xf7334d376a74388823c1992ca25179ea7534d09fa3e096a98a6b784391b9617d', 'takingAmount': '', 'makingAmount': '', 'status': 'live', 'transactionsHashes': None, 'success': True}
+[2025-06-10 20:00:21] --- New cycle ---
+[2025-06-10 20:00:21] Current 'No' position: 100.00 shares
+[2025-06-10 20:00:21] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:00:21] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:00:21] Open orders: SELL None@0.91
+[2025-06-10 20:00:21] Orders already at best prices
+[2025-06-10 20:01:22] --- New cycle ---
+[2025-06-10 20:01:22] Current 'No' position: 100.00 shares
+[2025-06-10 20:01:22] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:01:22] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:01:22] Open orders: SELL None@0.91
+[2025-06-10 20:01:22] Orders already at best prices
+[2025-06-10 20:02:24] --- New cycle ---
+[2025-06-10 20:02:24] Current 'No' position: 100.00 shares
+[2025-06-10 20:02:24] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:02:24] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:02:24] Open orders: SELL None@0.91
+[2025-06-10 20:02:24] Orders already at best prices
+[2025-06-10 20:03:25] --- New cycle ---
+[2025-06-10 20:03:25] Current 'No' position: 100.00 shares
+[2025-06-10 20:03:25] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:03:25] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:03:25] Open orders: SELL None@0.91
+[2025-06-10 20:03:25] Orders already at best prices
+[2025-06-10 20:04:27] --- New cycle ---
+[2025-06-10 20:04:27] Current 'No' position: 100.00 shares
+[2025-06-10 20:04:27] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:04:27] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:04:27] Open orders: SELL None@0.91
+[2025-06-10 20:04:27] Orders already at best prices
+[2025-06-10 20:05:28] --- New cycle ---
+[2025-06-10 20:05:28] Current 'No' position: 100.00 shares
+[2025-06-10 20:05:28] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:05:28] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:05:28] Open orders: SELL None@0.91
+[2025-06-10 20:05:28] Orders already at best prices
+[2025-06-10 20:06:30] --- New cycle ---
+[2025-06-10 20:06:30] Current 'No' position: 100.00 shares
+[2025-06-10 20:06:30] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:06:30] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:06:30] Open orders: SELL None@0.91
+[2025-06-10 20:06:30] Orders already at best prices
+[2025-06-10 20:07:32] --- New cycle ---
+[2025-06-10 20:07:32] Current 'No' position: 100.00 shares
+[2025-06-10 20:07:32] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:07:32] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:07:32] Open orders: SELL None@0.91
+[2025-06-10 20:07:32] Orders already at best prices
+[2025-06-10 20:08:34] --- New cycle ---
+[2025-06-10 20:08:34] Current 'No' position: 100.00 shares
+[2025-06-10 20:08:34] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:08:34] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:08:34] Open orders: SELL None@0.91
+[2025-06-10 20:08:34] Orders already at best prices
+[2025-06-10 20:09:35] --- New cycle ---
+[2025-06-10 20:09:35] Current 'No' position: 100.00 shares
+[2025-06-10 20:09:35] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:09:35] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:09:35] Open orders: SELL None@0.91
+[2025-06-10 20:09:35] Orders already at best prices
+[2025-06-10 20:10:37] --- New cycle ---
+[2025-06-10 20:10:37] Current 'No' position: 100.00 shares
+[2025-06-10 20:10:37] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:10:37] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:10:37] Open orders: SELL None@0.91
+[2025-06-10 20:10:37] Orders already at best prices
+[2025-06-10 20:11:38] --- New cycle ---
+[2025-06-10 20:11:38] Current 'No' position: 100.00 shares
+[2025-06-10 20:11:38] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:11:38] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:11:38] Open orders: SELL None@0.91
+[2025-06-10 20:11:38] Orders already at best prices
+[2025-06-10 20:12:39] --- New cycle ---
+[2025-06-10 20:12:39] Current 'No' position: 100.00 shares
+[2025-06-10 20:12:39] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:12:39] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:12:39] Open orders: SELL None@0.91
+[2025-06-10 20:12:39] Orders already at best prices
+[2025-06-10 20:13:41] --- New cycle ---
+[2025-06-10 20:13:41] Current 'No' position: 100.00 shares
+[2025-06-10 20:13:41] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:13:41] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:13:41] Open orders: SELL None@0.91
+[2025-06-10 20:13:41] Orders already at best prices
+[2025-06-10 20:14:42] --- New cycle ---
+[2025-06-10 20:14:42] Current 'No' position: 100.00 shares
+[2025-06-10 20:14:42] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:14:42] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:14:42] Open orders: SELL None@0.91
+[2025-06-10 20:14:42] Orders already at best prices
+[2025-06-10 20:15:44] --- New cycle ---
+[2025-06-10 20:15:44] Current 'No' position: 0.00 shares
+[2025-06-10 20:15:44] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:15:44] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:15:44] No open orders
+[2025-06-10 20:15:44] Orders not at desired prices – replacing
+[2025-06-10 20:15:44] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 20:15:44] Placing BUY order for 100.00 shares at 0.9
+[2025-06-10 20:15:44] Order response: {'errorMsg': '', 'orderID': '0x3590aa88fd424b1a41477c527f3492330c487fa0c6ebfd75858b98b357bd09d2', 'takingAmount': '', 'makingAmount': '', 'status': 'live', 'transactionsHashes': None, 'success': True}
+[2025-06-10 20:16:47] --- New cycle ---
+[2025-06-10 20:16:47] Current 'No' position: 0.00 shares
+[2025-06-10 20:16:47] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:16:47] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:16:47] Open orders: BUY None@0.9
+[2025-06-10 20:16:47] Orders already at best prices
+[2025-06-10 20:17:48] --- New cycle ---
+[2025-06-10 20:17:48] Current 'No' position: 0.00 shares
+[2025-06-10 20:17:48] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:17:48] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:17:48] Open orders: BUY None@0.9
+[2025-06-10 20:17:48] Orders already at best prices
+[2025-06-10 20:18:50] --- New cycle ---
+[2025-06-10 20:18:50] Current 'No' position: 0.00 shares
+[2025-06-10 20:18:50] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:18:50] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:18:50] Open orders: BUY None@0.9
+[2025-06-10 20:18:50] Orders already at best prices
+[2025-06-10 20:19:51] --- New cycle ---
+[2025-06-10 20:19:51] Current 'No' position: 0.00 shares
+[2025-06-10 20:19:51] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:19:51] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:19:51] Open orders: BUY None@0.9
+[2025-06-10 20:19:51] Orders already at best prices
+[2025-06-10 20:20:53] --- New cycle ---
+[2025-06-10 20:20:53] Current 'No' position: 0.00 shares
+[2025-06-10 20:20:53] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:20:53] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:20:53] Open orders: BUY None@0.9
+[2025-06-10 20:20:53] Orders already at best prices
+[2025-06-10 20:21:54] --- New cycle ---
+[2025-06-10 20:21:54] Current 'No' position: 0.00 shares
+[2025-06-10 20:21:54] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:21:54] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:21:54] Open orders: BUY None@0.9
+[2025-06-10 20:21:54] Orders already at best prices
+[2025-06-10 20:22:56] --- New cycle ---
+[2025-06-10 20:22:56] Current 'No' position: 0.00 shares
+[2025-06-10 20:22:56] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:22:56] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:22:56] Open orders: BUY None@0.9
+[2025-06-10 20:22:56] Orders already at best prices
+[2025-06-10 20:23:57] --- New cycle ---
+[2025-06-10 20:23:57] Current 'No' position: 0.00 shares
+[2025-06-10 20:23:57] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:23:57] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:23:57] Open orders: BUY None@0.9
+[2025-06-10 20:23:57] Orders already at best prices
+[2025-06-10 20:24:59] --- New cycle ---
+[2025-06-10 20:24:59] Current 'No' position: 0.00 shares
+[2025-06-10 20:24:59] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:24:59] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:24:59] Open orders: BUY None@0.9
+[2025-06-10 20:24:59] Orders already at best prices
+[2025-06-10 20:26:00] --- New cycle ---
+[2025-06-10 20:26:00] Current 'No' position: 0.00 shares
+[2025-06-10 20:26:00] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:26:00] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:26:00] Open orders: BUY None@0.9
+[2025-06-10 20:26:00] Orders already at best prices
+[2025-06-10 20:27:02] --- New cycle ---
+[2025-06-10 20:27:02] Current 'No' position: 0.00 shares
+[2025-06-10 20:27:02] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:27:02] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:27:02] Open orders: BUY None@0.9
+[2025-06-10 20:27:02] Orders already at best prices
+[2025-06-10 20:28:03] --- New cycle ---
+[2025-06-10 20:28:03] Current 'No' position: 0.00 shares
+[2025-06-10 20:28:03] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:28:03] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:28:03] Open orders: BUY None@0.9
+[2025-06-10 20:28:03] Orders already at best prices
+[2025-06-10 20:29:05] --- New cycle ---
+[2025-06-10 20:29:05] Current 'No' position: 0.00 shares
+[2025-06-10 20:29:05] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:29:05] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:29:05] Open orders: BUY None@0.9
+[2025-06-10 20:29:05] Orders already at best prices
+[2025-06-10 20:30:06] --- New cycle ---
+[2025-06-10 20:30:06] Current 'No' position: 0.00 shares
+[2025-06-10 20:30:06] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:30:06] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:30:06] Open orders: BUY None@0.9
+[2025-06-10 20:30:06] Orders already at best prices
+[2025-06-10 20:31:08] --- New cycle ---
+[2025-06-10 20:31:08] Current 'No' position: 0.00 shares
+[2025-06-10 20:31:08] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:31:08] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:31:08] Open orders: BUY None@0.9
+[2025-06-10 20:31:08] Orders already at best prices
+[2025-06-10 20:32:09] --- New cycle ---
+[2025-06-10 20:32:09] Current 'No' position: 0.00 shares
+[2025-06-10 20:32:09] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:32:09] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:32:09] Open orders: BUY None@0.9
+[2025-06-10 20:32:09] Orders already at best prices
+[2025-06-10 20:33:11] --- New cycle ---
+[2025-06-10 20:33:11] Current 'No' position: 0.00 shares
+[2025-06-10 20:33:11] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:33:11] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:33:11] Open orders: BUY None@0.9
+[2025-06-10 20:33:11] Orders already at best prices
+[2025-06-10 20:34:12] --- New cycle ---
+[2025-06-10 20:34:12] Current 'No' position: 0.00 shares
+[2025-06-10 20:34:12] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:34:12] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:34:12] Open orders: BUY None@0.9
+[2025-06-10 20:34:12] Orders already at best prices
+[2025-06-10 20:35:14] --- New cycle ---
+[2025-06-10 20:35:14] Current 'No' position: 0.00 shares
+[2025-06-10 20:35:14] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:35:14] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:35:14] Open orders: BUY None@0.9
+[2025-06-10 20:35:14] Orders already at best prices
+[2025-06-10 20:36:15] --- New cycle ---
+[2025-06-10 20:36:15] Current 'No' position: 0.00 shares
+[2025-06-10 20:36:15] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:36:15] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:36:15] Open orders: BUY None@0.9
+[2025-06-10 20:36:15] Orders already at best prices
+[2025-06-10 20:37:17] --- New cycle ---
+[2025-06-10 20:37:17] Current 'No' position: 0.00 shares
+[2025-06-10 20:37:17] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:37:17] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:37:17] Open orders: BUY None@0.9
+[2025-06-10 20:37:17] Orders already at best prices
+[2025-06-10 20:38:18] --- New cycle ---
+[2025-06-10 20:38:18] Current 'No' position: 0.00 shares
+[2025-06-10 20:38:18] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:38:18] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:38:18] Open orders: BUY None@0.9
+[2025-06-10 20:38:18] Orders already at best prices
+[2025-06-10 20:39:20] --- New cycle ---
+[2025-06-10 20:39:20] Current 'No' position: 0.00 shares
+[2025-06-10 20:39:20] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:39:20] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:39:20] Open orders: BUY None@0.9
+[2025-06-10 20:39:20] Orders already at best prices
+[2025-06-10 20:40:21] --- New cycle ---
+[2025-06-10 20:40:21] Current 'No' position: 0.00 shares
+[2025-06-10 20:40:21] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:40:21] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:40:21] Open orders: BUY None@0.9
+[2025-06-10 20:40:21] Orders already at best prices
+[2025-06-10 20:41:23] --- New cycle ---
+[2025-06-10 20:41:23] Current 'No' position: 0.00 shares
+[2025-06-10 20:41:23] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:41:23] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:41:23] Open orders: BUY None@0.9
+[2025-06-10 20:41:23] Orders already at best prices
+[2025-06-10 20:42:24] --- New cycle ---
+[2025-06-10 20:42:24] Current 'No' position: 0.00 shares
+[2025-06-10 20:42:24] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:42:24] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:42:24] Open orders: BUY None@0.9
+[2025-06-10 20:42:24] Orders already at best prices
+[2025-06-10 20:43:26] --- New cycle ---
+[2025-06-10 20:43:26] Current 'No' position: 0.00 shares
+[2025-06-10 20:43:26] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:43:26] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:43:26] Open orders: BUY None@0.9
+[2025-06-10 20:43:26] Orders already at best prices
+[2025-06-10 20:44:28] --- New cycle ---
+[2025-06-10 20:44:28] Current 'No' position: 0.00 shares
+[2025-06-10 20:44:28] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:44:28] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:44:28] Open orders: BUY None@0.9
+[2025-06-10 20:44:28] Orders already at best prices
+[2025-06-10 20:45:29] --- New cycle ---
+[2025-06-10 20:45:29] Current 'No' position: 0.00 shares
+[2025-06-10 20:45:29] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:45:29] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:45:29] Open orders: BUY None@0.9
+[2025-06-10 20:45:29] Orders already at best prices
+[2025-06-10 20:46:31] --- New cycle ---
+[2025-06-10 20:46:31] Current 'No' position: 0.00 shares
+[2025-06-10 20:46:31] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:46:31] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:46:31] Open orders: BUY None@0.9
+[2025-06-10 20:46:31] Orders already at best prices
+[2025-06-10 20:47:33] --- New cycle ---
+[2025-06-10 20:47:33] Current 'No' position: 0.00 shares
+[2025-06-10 20:47:33] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:47:33] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:47:33] Open orders: BUY None@0.9
+[2025-06-10 20:47:33] Orders already at best prices
+[2025-06-10 20:48:35] --- New cycle ---
+[2025-06-10 20:48:35] Current 'No' position: 0.00 shares
+[2025-06-10 20:48:35] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:48:35] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:48:35] Open orders: BUY None@0.9
+[2025-06-10 20:48:35] Orders already at best prices
+[2025-06-10 20:49:36] --- New cycle ---
+[2025-06-10 20:49:36] Current 'No' position: 0.00 shares
+[2025-06-10 20:49:36] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:49:36] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:49:36] Open orders: BUY None@0.9
+[2025-06-10 20:49:36] Orders already at best prices
+[2025-06-10 20:50:38] --- New cycle ---
+[2025-06-10 20:50:38] Current 'No' position: 0.00 shares
+[2025-06-10 20:50:38] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:50:38] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:50:38] Open orders: BUY None@0.9
+[2025-06-10 20:50:38] Orders already at best prices
+[2025-06-10 20:51:39] --- New cycle ---
+[2025-06-10 20:51:39] Current 'No' position: 0.00 shares
+[2025-06-10 20:51:39] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:51:39] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:51:39] Open orders: BUY None@0.9
+[2025-06-10 20:51:39] Orders already at best prices
+[2025-06-10 20:52:41] --- New cycle ---
+[2025-06-10 20:52:41] Current 'No' position: 0.00 shares
+[2025-06-10 20:52:41] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:52:41] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:52:41] Open orders: BUY None@0.9
+[2025-06-10 20:52:41] Orders already at best prices
+[2025-06-10 20:53:42] --- New cycle ---
+[2025-06-10 20:53:42] Current 'No' position: 0.00 shares
+[2025-06-10 20:53:42] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:53:42] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:53:42] Open orders: BUY None@0.9
+[2025-06-10 20:53:42] Orders already at best prices
+[2025-06-10 20:54:44] --- New cycle ---
+[2025-06-10 20:54:44] Current 'No' position: 0.00 shares
+[2025-06-10 20:54:44] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:54:44] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:54:44] Open orders: BUY None@0.9
+[2025-06-10 20:54:44] Orders already at best prices
+[2025-06-10 20:55:45] --- New cycle ---
+[2025-06-10 20:55:45] Current 'No' position: 0.00 shares
+[2025-06-10 20:55:45] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:55:45] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:55:45] Open orders: BUY None@0.9
+[2025-06-10 20:55:45] Orders already at best prices
+[2025-06-10 20:56:46] --- New cycle ---
+[2025-06-10 20:56:46] Current 'No' position: 0.00 shares
+[2025-06-10 20:56:46] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:56:46] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:56:46] Open orders: BUY None@0.9
+[2025-06-10 20:56:46] Orders already at best prices
+[2025-06-10 20:57:48] --- New cycle ---
+[2025-06-10 20:57:48] Current 'No' position: 0.00 shares
+[2025-06-10 20:57:48] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:57:48] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:57:48] Open orders: BUY None@0.9
+[2025-06-10 20:57:48] Orders already at best prices
+[2025-06-10 20:58:49] --- New cycle ---
+[2025-06-10 20:58:49] Current 'No' position: 0.00 shares
+[2025-06-10 20:58:49] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:58:49] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:58:49] Open orders: BUY None@0.9
+[2025-06-10 20:58:49] Orders already at best prices
+[2025-06-10 20:59:51] --- New cycle ---
+[2025-06-10 20:59:51] Current 'No' position: 0.00 shares
+[2025-06-10 20:59:51] Best bid: 0.9, best ask: 0.91
+[2025-06-10 20:59:51] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 20:59:51] Open orders: BUY None@0.9
+[2025-06-10 20:59:51] Orders already at best prices
+[2025-06-10 21:27:02] --- New cycle ---
+[2025-06-10 21:27:02] Current 'No' position: 0.00 shares
+[2025-06-10 21:27:02] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:27:02] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:27:02] Open orders: BUY None@0.9
+[2025-06-10 21:27:02] Orders already at best prices
+[2025-06-10 21:28:03] --- New cycle ---
+[2025-06-10 21:28:03] Current 'No' position: 0.00 shares
+[2025-06-10 21:28:03] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:28:03] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:28:03] No open orders
+[2025-06-10 21:28:03] Orders not at desired prices – replacing
+[2025-06-10 21:28:03] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 21:28:03] Placing BUY order for 10.00 shares at 0.9
+[2025-06-10 21:28:03] Order response: {'errorMsg': '', 'orderID': '0xedb0fec8e559fde26ee31618af022eada74fbfe43a74784d92ede6131a5050e7', 'takingAmount': '', 'makingAmount': '', 'status': 'live', 'transactionsHashes': None, 'success': True}
+[2025-06-10 21:29:05] --- New cycle ---
+[2025-06-10 21:29:05] Current 'No' position: 0.00 shares
+[2025-06-10 21:29:05] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:29:05] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:29:05] Open orders: BUY None@0.9
+[2025-06-10 21:29:05] Orders already at best prices
+[2025-06-10 21:30:07] --- New cycle ---
+[2025-06-10 21:30:07] Current 'No' position: 0.00 shares
+[2025-06-10 21:30:07] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:30:07] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:30:07] Open orders: BUY None@0.9
+[2025-06-10 21:30:07] Orders already at best prices
+[2025-06-10 21:31:08] --- New cycle ---
+[2025-06-10 21:31:08] Current 'No' position: 0.00 shares
+[2025-06-10 21:31:08] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:31:08] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:31:08] Open orders: BUY None@0.9
+[2025-06-10 21:31:08] Orders already at best prices
+[2025-06-10 21:32:10] --- New cycle ---
+[2025-06-10 21:32:10] Current 'No' position: 0.00 shares
+[2025-06-10 21:32:10] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:32:10] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:32:10] Open orders: BUY None@0.9
+[2025-06-10 21:32:10] Orders already at best prices
+[2025-06-10 21:33:11] --- New cycle ---
+[2025-06-10 21:33:11] Current 'No' position: 0.00 shares
+[2025-06-10 21:33:11] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:33:11] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:33:11] Open orders: BUY None@0.9
+[2025-06-10 21:33:11] Orders already at best prices
+[2025-06-10 21:34:13] --- New cycle ---
+[2025-06-10 21:34:13] Current 'No' position: 0.00 shares
+[2025-06-10 21:34:13] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:34:13] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:34:13] Open orders: BUY None@0.9
+[2025-06-10 21:34:13] Orders already at best prices
+[2025-06-10 21:35:14] --- New cycle ---
+[2025-06-10 21:35:14] Current 'No' position: 0.00 shares
+[2025-06-10 21:35:14] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:35:14] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:35:14] Open orders: BUY None@0.9
+[2025-06-10 21:35:14] Orders already at best prices
+[2025-06-10 21:36:16] --- New cycle ---
+[2025-06-10 21:36:16] Current 'No' position: 0.00 shares
+[2025-06-10 21:36:16] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:36:16] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:36:16] Open orders: BUY None@0.9
+[2025-06-10 21:36:16] Orders already at best prices
+[2025-06-10 21:37:17] --- New cycle ---
+[2025-06-10 21:37:17] Current 'No' position: 0.00 shares
+[2025-06-10 21:37:17] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:37:17] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:37:17] Open orders: BUY None@0.9
+[2025-06-10 21:37:17] Orders already at best prices
+[2025-06-10 21:38:19] --- New cycle ---
+[2025-06-10 21:38:19] Current 'No' position: 0.00 shares
+[2025-06-10 21:38:19] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:38:19] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:38:19] Open orders: BUY None@0.9
+[2025-06-10 21:38:19] Orders already at best prices
+[2025-06-10 21:39:21] --- New cycle ---
+[2025-06-10 21:39:21] Current 'No' position: 0.00 shares
+[2025-06-10 21:39:21] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:39:21] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:39:21] Open orders: BUY None@0.9
+[2025-06-10 21:39:21] Orders already at best prices
+[2025-06-10 21:40:23] --- New cycle ---
+[2025-06-10 21:40:23] Current 'No' position: 0.00 shares
+[2025-06-10 21:40:23] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:40:23] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:40:23] Open orders: BUY None@0.9
+[2025-06-10 21:40:23] Orders already at best prices
+[2025-06-10 21:41:24] --- New cycle ---
+[2025-06-10 21:41:24] Current 'No' position: 0.00 shares
+[2025-06-10 21:41:24] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:41:24] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:41:24] Open orders: BUY None@0.9
+[2025-06-10 21:41:24] Orders already at best prices
+[2025-06-10 21:42:26] --- New cycle ---
+[2025-06-10 21:42:26] Current 'No' position: 0.00 shares
+[2025-06-10 21:42:26] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:42:26] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:42:26] Open orders: BUY None@0.9
+[2025-06-10 21:42:26] Orders already at best prices
+[2025-06-10 21:43:29] --- New cycle ---
+[2025-06-10 21:43:29] Current 'No' position: 0.00 shares
+[2025-06-10 21:43:29] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:43:29] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:43:29] Open orders: BUY None@0.9
+[2025-06-10 21:43:29] Orders already at best prices
+[2025-06-10 21:44:31] --- New cycle ---
+[2025-06-10 21:44:31] Current 'No' position: 0.00 shares
+[2025-06-10 21:44:31] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:44:31] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:44:31] Open orders: BUY None@0.9
+[2025-06-10 21:44:31] Orders already at best prices
+[2025-06-10 21:45:33] --- New cycle ---
+[2025-06-10 21:45:33] Current 'No' position: 0.00 shares
+[2025-06-10 21:45:33] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:45:33] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:45:33] Open orders: BUY None@0.9
+[2025-06-10 21:45:33] Orders already at best prices
+[2025-06-10 21:46:34] --- New cycle ---
+[2025-06-10 21:46:34] Current 'No' position: 0.00 shares
+[2025-06-10 21:46:34] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:46:34] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:46:34] Open orders: BUY None@0.9
+[2025-06-10 21:46:34] Orders already at best prices
+[2025-06-10 21:47:36] --- New cycle ---
+[2025-06-10 21:47:36] Current 'No' position: 0.00 shares
+[2025-06-10 21:47:36] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:47:36] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:47:36] Open orders: BUY None@0.9
+[2025-06-10 21:47:36] Orders already at best prices
+[2025-06-10 21:48:38] --- New cycle ---
+[2025-06-10 21:48:38] Current 'No' position: 0.00 shares
+[2025-06-10 21:48:38] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:48:38] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:48:38] Open orders: BUY None@0.9
+[2025-06-10 21:48:38] Orders already at best prices
+[2025-06-10 21:49:39] --- New cycle ---
+[2025-06-10 21:49:39] Current 'No' position: 0.00 shares
+[2025-06-10 21:49:39] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:49:39] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:49:39] Open orders: BUY None@0.9
+[2025-06-10 21:49:39] Orders already at best prices
+[2025-06-10 21:50:41] --- New cycle ---
+[2025-06-10 21:50:41] Current 'No' position: 0.00 shares
+[2025-06-10 21:50:41] Best bid: 0.9, best ask: 0.91
+[2025-06-10 21:50:41] Target buy price: 0.9, target sell price: 0.91
+[2025-06-10 21:50:41] Open orders: BUY None@0.9
+[2025-06-10 21:50:41] Orders already at best prices
+[2025-06-10 21:51:42] --- New cycle ---
+[2025-06-10 21:51:42] Current 'No' position: 10.00 shares
+[2025-06-10 21:51:42] Best bid: 0.87, best ask: 0.88
+[2025-06-10 21:51:42] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 21:51:42] No open orders
+[2025-06-10 21:51:42] Orders not at desired prices – replacing
+[2025-06-10 21:51:42] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 21:51:42] Placing SELL order for 10.00 shares at 0.88
+[2025-06-10 21:51:42] Order response: {'errorMsg': '', 'orderID': '0xc1e786f1b0d182266c5fbb9e9083dbc4d7c72b8e1726ab6ef17b9e3cc40bfec9', 'takingAmount': '', 'makingAmount': '', 'status': 'live', 'transactionsHashes': None, 'success': True}
+[2025-06-10 21:52:46] --- New cycle ---
+[2025-06-10 21:52:46] Current 'No' position: 10.00 shares
+[2025-06-10 21:52:46] Best bid: 0.87, best ask: 0.88
+[2025-06-10 21:52:46] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 21:52:46] Open orders: SELL None@0.88
+[2025-06-10 21:52:46] Orders already at best prices
+[2025-06-10 21:53:47] --- New cycle ---
+[2025-06-10 21:53:47] Current 'No' position: 10.00 shares
+[2025-06-10 21:53:47] Best bid: 0.87, best ask: 0.88
+[2025-06-10 21:53:47] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 21:53:47] Open orders: SELL None@0.88
+[2025-06-10 21:53:47] Orders already at best prices
+[2025-06-10 21:54:49] --- New cycle ---
+[2025-06-10 21:54:49] Current 'No' position: 10.00 shares
+[2025-06-10 21:54:49] Best bid: 0.87, best ask: 0.88
+[2025-06-10 21:54:49] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 21:54:49] Open orders: SELL None@0.88
+[2025-06-10 21:54:49] Orders already at best prices
+[2025-06-10 21:55:51] --- New cycle ---
+[2025-06-10 21:55:51] Current 'No' position: 10.00 shares
+[2025-06-10 21:55:51] Best bid: 0.87, best ask: 0.88
+[2025-06-10 21:55:51] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 21:55:51] Open orders: SELL None@0.88
+[2025-06-10 21:55:51] Orders already at best prices
+[2025-06-10 21:56:52] --- New cycle ---
+[2025-06-10 21:56:52] Current 'No' position: 10.00 shares
+[2025-06-10 21:56:52] Best bid: 0.87, best ask: 0.88
+[2025-06-10 21:56:52] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 21:56:52] Open orders: SELL None@0.88
+[2025-06-10 21:56:52] Orders already at best prices
+[2025-06-10 21:57:54] --- New cycle ---
+[2025-06-10 21:57:54] Current 'No' position: 10.00 shares
+[2025-06-10 21:57:54] Best bid: 0.87, best ask: 0.88
+[2025-06-10 21:57:54] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 21:57:54] Open orders: SELL None@0.88
+[2025-06-10 21:57:54] Orders already at best prices
+[2025-06-10 21:58:55] --- New cycle ---
+[2025-06-10 21:58:55] Current 'No' position: 10.00 shares
+[2025-06-10 21:58:55] Best bid: 0.87, best ask: 0.88
+[2025-06-10 21:58:55] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 21:58:55] Open orders: SELL None@0.88
+[2025-06-10 21:58:55] Orders already at best prices
+[2025-06-10 21:59:57] --- New cycle ---
+[2025-06-10 21:59:57] Current 'No' position: 10.00 shares
+[2025-06-10 21:59:57] Best bid: 0.87, best ask: 0.88
+[2025-06-10 21:59:57] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 21:59:57] Open orders: SELL None@0.88
+[2025-06-10 21:59:57] Orders already at best prices
+[2025-06-10 22:00:58] --- New cycle ---
+[2025-06-10 22:00:58] Current 'No' position: 10.00 shares
+[2025-06-10 22:00:58] Best bid: 0.87, best ask: 0.88
+[2025-06-10 22:00:58] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 22:00:58] Open orders: SELL None@0.88
+[2025-06-10 22:00:58] Orders already at best prices
+[2025-06-10 22:02:00] --- New cycle ---
+[2025-06-10 22:02:00] Current 'No' position: 10.00 shares
+[2025-06-10 22:02:00] Best bid: 0.87, best ask: 0.88
+[2025-06-10 22:02:00] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 22:02:00] Open orders: SELL None@0.88
+[2025-06-10 22:02:00] Orders already at best prices
+[2025-06-10 22:03:01] --- New cycle ---
+[2025-06-10 22:03:01] Current 'No' position: 10.00 shares
+[2025-06-10 22:03:01] Best bid: 0.87, best ask: 0.88
+[2025-06-10 22:03:01] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 22:03:01] Open orders: SELL None@0.88
+[2025-06-10 22:03:01] Orders already at best prices
+[2025-06-10 22:04:03] --- New cycle ---
+[2025-06-10 22:04:03] Current 'No' position: 10.00 shares
+[2025-06-10 22:04:03] Best bid: 0.87, best ask: 0.88
+[2025-06-10 22:04:03] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 22:04:03] Open orders: SELL None@0.88
+[2025-06-10 22:04:03] Orders already at best prices
+[2025-06-10 22:05:04] --- New cycle ---
+[2025-06-10 22:05:04] Current 'No' position: 10.00 shares
+[2025-06-10 22:05:04] Best bid: 0.87, best ask: 0.88
+[2025-06-10 22:05:04] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 22:05:04] Open orders: SELL None@0.88
+[2025-06-10 22:05:04] Orders already at best prices
+[2025-06-10 22:06:06] --- New cycle ---
+[2025-06-10 22:06:06] Current 'No' position: 10.00 shares
+[2025-06-10 22:06:06] Best bid: 0.87, best ask: 0.88
+[2025-06-10 22:06:06] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 22:06:06] Open orders: SELL None@0.88
+[2025-06-10 22:06:06] Orders already at best prices
+[2025-06-10 22:07:08] --- New cycle ---
+[2025-06-10 22:07:08] Current 'No' position: 8.86 shares
+[2025-06-10 22:07:08] Best bid: 0.87, best ask: 0.88
+[2025-06-10 22:07:08] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 22:07:08] Open orders: SELL None@0.88
+[2025-06-10 22:07:08] Orders not at desired prices – replacing
+[2025-06-10 22:07:08] cancel_all_orders() -> {'not_canceled': {}, 'canceled': ['0xc1e786f1b0d182266c5fbb9e9083dbc4d7c72b8e1726ab6ef17b9e3cc40bfec9']}
+[2025-06-10 22:07:08] Placing BUY order for 1.14 shares at 0.87
+[2025-06-10 22:07:08] Error during cycle: PolyApiException[status_code=400, error_message={'error': 'order 0x890c68c1679dde20a05d3c42af01a07c1d3a83fb3b76e5ca99dfece32873e7f7 is invalid. Size (1.13) lower than the minimum: 5'}]
+Traceback (most recent call last):
+  File "C:\Kos\Polymarket\market2\robot_v1.py", line 127, in run_robot
+    resp = buy_no(
+        market=market, x_cents_below_ask=1, size=size
+    )
+  File "C:\Kos\Polymarket\market2\trading_helpers.py", line 91, in buy_no
+    return _buy_no(market=market, x_cents_below_ask=x_cents_below_ask, size=size)
+  File "C:\Kos\Polymarket\market2\market_prices.py", line 79, in buyNo
+    placed_resp = client.post_order(signed, OrderType.GTC)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\client.py", line 452, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'order 0x890c68c1679dde20a05d3c42af01a07c1d3a83fb3b76e5ca99dfece32873e7f7 is invalid. Size (1.13) lower than the minimum: 5'}]
+[2025-06-10 22:08:10] --- New cycle ---
+[2025-06-10 22:08:10] Current 'No' position: 8.86 shares
+[2025-06-10 22:08:10] Best bid: 0.87, best ask: 0.88
+[2025-06-10 22:08:10] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 22:08:10] No open orders
+[2025-06-10 22:08:10] Orders not at desired prices – replacing
+[2025-06-10 22:08:10] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 22:08:10] Placing BUY order for 1.14 shares at 0.87
+[2025-06-10 22:08:10] Error during cycle: PolyApiException[status_code=400, error_message={'error': 'order 0x46de2fc31485f41ededaa05c3b4141b3455361d153800508a8ef78a002a656c9 is invalid. Size (1.13) lower than the minimum: 5'}]
+Traceback (most recent call last):
+  File "C:\Kos\Polymarket\market2\robot_v1.py", line 127, in run_robot
+    resp = buy_no(
+        market=market, x_cents_below_ask=1, size=size
+    )
+  File "C:\Kos\Polymarket\market2\trading_helpers.py", line 91, in buy_no
+    return _buy_no(market=market, x_cents_below_ask=x_cents_below_ask, size=size)
+  File "C:\Kos\Polymarket\market2\market_prices.py", line 79, in buyNo
+    placed_resp = client.post_order(signed, OrderType.GTC)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\client.py", line 452, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'order 0x46de2fc31485f41ededaa05c3b4141b3455361d153800508a8ef78a002a656c9 is invalid. Size (1.13) lower than the minimum: 5'}]
+[2025-06-10 22:09:13] --- New cycle ---
+[2025-06-10 22:09:13] Current 'No' position: 8.86 shares
+[2025-06-10 22:09:13] Best bid: 0.87, best ask: 0.88
+[2025-06-10 22:09:13] Target buy price: 0.87, target sell price: 0.88
+[2025-06-10 22:09:13] No open orders
+[2025-06-10 22:09:13] Orders not at desired prices – replacing
+[2025-06-10 22:09:13] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 22:09:13] Placing BUY order for 1.14 shares at 0.87
+[2025-06-10 22:09:13] Error during cycle: PolyApiException[status_code=400, error_message={'error': 'order 0xe7288b41bf28bc74c175b1c64132275281d9d6928cc0d3d5138d2beb5b282345 is invalid. Size (1.13) lower than the minimum: 5'}]
+Traceback (most recent call last):
+  File "C:\Kos\Polymarket\market2\robot_v1.py", line 127, in run_robot
+    resp = buy_no(
+        market=market, x_cents_below_ask=1, size=size
+    )
+  File "C:\Kos\Polymarket\market2\trading_helpers.py", line 91, in buy_no
+    return _buy_no(market=market, x_cents_below_ask=x_cents_below_ask, size=size)
+  File "C:\Kos\Polymarket\market2\market_prices.py", line 79, in buyNo
+    placed_resp = client.post_order(signed, OrderType.GTC)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\client.py", line 452, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'order 0xe7288b41bf28bc74c175b1c64132275281d9d6928cc0d3d5138d2beb5b282345 is invalid. Size (1.13) lower than the minimum: 5'}]
+[2025-06-10 22:10:16] --- New cycle ---
+[2025-06-10 22:10:16] Current 'No' position: 8.86 shares
+[2025-06-10 22:10:16] Best bid: 0.86, best ask: 0.87
+[2025-06-10 22:10:16] Target buy price: 0.86, target sell price: 0.87
+[2025-06-10 22:10:16] No open orders
+[2025-06-10 22:10:16] Orders not at desired prices – replacing
+[2025-06-10 22:10:16] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 22:10:16] Placing BUY order for 1.14 shares at 0.86
+[2025-06-10 22:10:16] Error during cycle: PolyApiException[status_code=400, error_message={'error': 'order 0x59926be803674f53322722e02b865fb7bbee2290e09905f6755077b94ecdc687 is invalid. Size (1.13) lower than the minimum: 5'}]
+Traceback (most recent call last):
+  File "C:\Kos\Polymarket\market2\robot_v1.py", line 127, in run_robot
+    resp = buy_no(
+        market=market, x_cents_below_ask=1, size=size
+    )
+  File "C:\Kos\Polymarket\market2\trading_helpers.py", line 91, in buy_no
+    return _buy_no(market=market, x_cents_below_ask=x_cents_below_ask, size=size)
+  File "C:\Kos\Polymarket\market2\market_prices.py", line 79, in buyNo
+    placed_resp = client.post_order(signed, OrderType.GTC)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\client.py", line 452, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'order 0x59926be803674f53322722e02b865fb7bbee2290e09905f6755077b94ecdc687 is invalid. Size (1.13) lower than the minimum: 5'}]
+[2025-06-10 22:11:18] --- New cycle ---
+[2025-06-10 22:11:18] Current 'No' position: 8.86 shares
+[2025-06-10 22:11:18] Best bid: 0.86, best ask: 0.87
+[2025-06-10 22:11:18] Target buy price: 0.86, target sell price: 0.87
+[2025-06-10 22:11:18] No open orders
+[2025-06-10 22:11:18] Orders not at desired prices – replacing
+[2025-06-10 22:11:18] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 22:11:18] Placing BUY order for 1.14 shares at 0.86
+[2025-06-10 22:11:18] Error during cycle: PolyApiException[status_code=400, error_message={'error': 'order 0xf149334b962c2d0126aa5acd1c3ed2da6305f75de632860708bfc75e268d6f62 is invalid. Size (1.13) lower than the minimum: 5'}]
+Traceback (most recent call last):
+  File "C:\Kos\Polymarket\market2\robot_v1.py", line 127, in run_robot
+    resp = buy_no(
+        market=market, x_cents_below_ask=1, size=size
+    )
+  File "C:\Kos\Polymarket\market2\trading_helpers.py", line 91, in buy_no
+    return _buy_no(market=market, x_cents_below_ask=x_cents_below_ask, size=size)
+  File "C:\Kos\Polymarket\market2\market_prices.py", line 79, in buyNo
+    placed_resp = client.post_order(signed, OrderType.GTC)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\client.py", line 452, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'order 0xf149334b962c2d0126aa5acd1c3ed2da6305f75de632860708bfc75e268d6f62 is invalid. Size (1.13) lower than the minimum: 5'}]
+[2025-06-10 22:12:21] --- New cycle ---
+[2025-06-10 22:12:21] Current 'No' position: 8.86 shares
+[2025-06-10 22:12:21] Best bid: 0.86, best ask: 0.87
+[2025-06-10 22:12:21] Target buy price: 0.86, target sell price: 0.87
+[2025-06-10 22:12:21] No open orders
+[2025-06-10 22:12:21] Orders not at desired prices – replacing
+[2025-06-10 22:12:21] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 22:12:21] Placing BUY order for 1.14 shares at 0.86
+[2025-06-10 22:12:21] Error during cycle: PolyApiException[status_code=400, error_message={'error': 'order 0x0b954e8ac8b906e7896116b1208c4260eb5c0f7393d5b3f85dfee30cea8ba821 is invalid. Size (1.13) lower than the minimum: 5'}]
+Traceback (most recent call last):
+  File "C:\Kos\Polymarket\market2\robot_v1.py", line 127, in run_robot
+    resp = buy_no(
+        market=market, x_cents_below_ask=1, size=size
+    )
+  File "C:\Kos\Polymarket\market2\trading_helpers.py", line 91, in buy_no
+    return _buy_no(market=market, x_cents_below_ask=x_cents_below_ask, size=size)
+  File "C:\Kos\Polymarket\market2\market_prices.py", line 79, in buyNo
+    placed_resp = client.post_order(signed, OrderType.GTC)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\client.py", line 452, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'order 0x0b954e8ac8b906e7896116b1208c4260eb5c0f7393d5b3f85dfee30cea8ba821 is invalid. Size (1.13) lower than the minimum: 5'}]
+[2025-06-10 22:13:24] --- New cycle ---
+[2025-06-10 22:13:24] Current 'No' position: 8.86 shares
+[2025-06-10 22:13:24] Best bid: 0.86, best ask: 0.87
+[2025-06-10 22:13:24] Target buy price: 0.86, target sell price: 0.87
+[2025-06-10 22:13:24] No open orders
+[2025-06-10 22:13:24] Orders not at desired prices – replacing
+[2025-06-10 22:13:24] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 22:13:24] Placing BUY order for 1.14 shares at 0.86
+[2025-06-10 22:13:24] Error during cycle: PolyApiException[status_code=400, error_message={'error': 'order 0xb85efd2d1dbad2d352de2c0ee55bfbe4e364f4bb28f3a08e4e35c32353364a73 is invalid. Size (1.13) lower than the minimum: 5'}]
+Traceback (most recent call last):
+  File "C:\Kos\Polymarket\market2\robot_v1.py", line 127, in run_robot
+    resp = buy_no(
+        market=market, x_cents_below_ask=1, size=size
+    )
+  File "C:\Kos\Polymarket\market2\trading_helpers.py", line 91, in buy_no
+    return _buy_no(market=market, x_cents_below_ask=x_cents_below_ask, size=size)
+  File "C:\Kos\Polymarket\market2\market_prices.py", line 79, in buyNo
+    placed_resp = client.post_order(signed, OrderType.GTC)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\client.py", line 452, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'order 0xb85efd2d1dbad2d352de2c0ee55bfbe4e364f4bb28f3a08e4e35c32353364a73 is invalid. Size (1.13) lower than the minimum: 5'}]
+[2025-06-10 22:14:26] --- New cycle ---
+[2025-06-10 22:14:26] Current 'No' position: 8.86 shares
+[2025-06-10 22:14:26] Best bid: 0.86, best ask: 0.87
+[2025-06-10 22:14:26] Target buy price: 0.86, target sell price: 0.87
+[2025-06-10 22:14:26] No open orders
+[2025-06-10 22:14:26] Orders not at desired prices – replacing
+[2025-06-10 22:14:26] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 22:14:26] Placing BUY order for 1.14 shares at 0.86
+[2025-06-10 22:14:26] Error during cycle: PolyApiException[status_code=400, error_message={'error': 'order 0x1099a18b6462ad409486703c1a14ea0f92c455c0a7afc646fb5dae35ebc63d8d is invalid. Size (1.13) lower than the minimum: 5'}]
+Traceback (most recent call last):
+  File "C:\Kos\Polymarket\market2\robot_v1.py", line 127, in run_robot
+    resp = buy_no(
+        market=market, x_cents_below_ask=1, size=size
+    )
+  File "C:\Kos\Polymarket\market2\trading_helpers.py", line 91, in buy_no
+    return _buy_no(market=market, x_cents_below_ask=x_cents_below_ask, size=size)
+  File "C:\Kos\Polymarket\market2\market_prices.py", line 79, in buyNo
+    placed_resp = client.post_order(signed, OrderType.GTC)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\client.py", line 452, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'order 0x1099a18b6462ad409486703c1a14ea0f92c455c0a7afc646fb5dae35ebc63d8d is invalid. Size (1.13) lower than the minimum: 5'}]
