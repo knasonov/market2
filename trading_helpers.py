@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import time
 from typing import Any, Dict, List
+from py_clob_client.clob_types import AssetType
 
 from py_clob_client.client import (
     BalanceAllowanceParams,
@@ -29,7 +30,7 @@ def get_positions(market: str) -> Dict[str, float]:
     for token in market_info.get("tokens", []):
         token_id = token.get("token_id")
         outcome = token.get("outcome", "").lower()
-        resp = client.get_balance_allowance(BalanceAllowanceParams(token_id=token_id))
+        resp = client.get_balance_allowance(BalanceAllowanceParams(asset_type=AssetType.CONDITIONAL, token_id=token_id))
         balance = 0.0
         if isinstance(resp, dict):
             balance = float(resp.get("balance", 0))
@@ -85,3 +86,7 @@ def sell_no(market: str, x_cents_above_bid: int, *, size: float | None = None) -
 def cancel_all_orders() -> Dict[str, Any]:
     """Cancel all open orders using :func:`market_prices.cancel_all_orders`."""
     return _cancel_all()
+
+#pos = get_open_orders("0xc3ede0572bba2901df68aac861e1be5a2de742060237d8cf85085e596d210eff")
+pos = get_positions("0xc3ede0572bba2901df68aac861e1be5a2de742060237d8cf85085e596d210eff")
+print(pos)
