@@ -33,7 +33,7 @@ def get_positions(market: str) -> Dict[str, float]:
         resp = client.get_balance_allowance(BalanceAllowanceParams(asset_type=AssetType.CONDITIONAL, token_id=token_id))
         balance = 0.0
         if isinstance(resp, dict):
-            balance = float(resp.get("balance", 0))
+            balance = float(resp.get("balance", 0)) / 1_000_000
         positions[outcome] = balance
     return positions
 
@@ -49,6 +49,8 @@ def get_open_orders(market: str) -> List[Dict[str, Any]]:
     for o in orders:
         if o.get("size") is None and o.get("remainingSize") is not None:
             o["size"] = o.get("remainingSize")
+        if o.get("size") is not None:
+            o["size"] = float(o["size"]) / 1_000_000
     return orders
 
 
@@ -57,7 +59,11 @@ def get_recent_trades(market: str, minutes: int) -> List[Dict[str, Any]]:
     client = _auth_client()
     condition_id = _resolve_market_id(market)
     after_ts = int(time.time()) - minutes * 60
-    return client.get_trades(TradeParams(market=condition_id, after=after_ts))
+    trades = client.get_trades(TradeParams(market=condition_id, after=after_ts))
+    for t in trades:
+        if t.get("size") is not None:
+            t["size"] = float(t["size"]) / 1_000_000
+    return trades
 
 
 def get_bid_ask_spread(market: str) -> Dict[str, Dict[str, float]]:
