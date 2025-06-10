@@ -292,15 +292,23 @@ if __name__ == "__main__":
 
     current_market = "0xc3ede0572bba2901df68aac861e1be5a2de742060237d8cf85085e596d210eff"
     
+    """
     placed, canceled = buyNo(
         market=current_market,
         x_cents_below_ask=1,
         cancel_after_secs=100,
         size=100.0,
     )
+    """
 
+    #cancel_all_orders()
+    """
+    sellNo(
+        market=current_market,
+        x_cents_above_bid=1,
+        cancel_after_secs=100,
+        size=95.0,
+    )
+    """
 
-
-    print("Placed order:", placed)
-    print("Cancel response:", canceled)
 
