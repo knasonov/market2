@@ -14,7 +14,7 @@ from __future__ import annotations
 
 import sys
 import time
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Set
 import logging
 
 logging.basicConfig(
@@ -31,7 +31,9 @@ from trading_helpers import (
     get_bid_ask_spread,
     get_open_orders,
     get_positions,
+    get_recent_trades,
 )
+from telegram1 import send_telegram_message
 
 
 def _has_order(orders: List[Dict[str, Any]], side: str, price: float) -> bool:
@@ -42,9 +44,32 @@ def _has_order(orders: List[Dict[str, Any]], side: str, price: float) -> bool:
     return False
 
 
+def _summarise_trade(trade: Dict[str, object]) -> str:
+    """Return a short summary like ``"Bought 100 No at 91c"``."""
+
+    side = str(trade.get("side", "")).upper()
+    action = "Bought" if side == "BUY" else "Sold"
+
+    size = trade.get("size")
+    try:
+        size = float(size) / 1_000_000 if size is not None else 0.0
+    except Exception:
+        size = 0.0
+
+    price = trade.get("price")
+    try:
+        price = float(price) if price is not None else 0.0
+    except Exception:
+        price = 0.0
+
+    price_cents = round(price * 100)
+    return f"{action} {size:.0f} No at {price_cents}c"
+
+
 def run_robot(market: str, t_work: int, *, max_amount: float = 100.0) -> None:
     """Run the maker bot on ``market`` for ``t_work`` seconds."""
     end_ts = time.time() + t_work
+    seen_ids: Set[str] = set()
 
     while time.time() < end_ts:
         cycle_ts = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
@@ -109,6 +134,15 @@ def run_robot(market: str, t_work: int, *, max_amount: float = 100.0) -> None:
                     logging.info(f"[{cycle_ts}] Order response: {resp}")
             else:
                 logging.info(f"[{cycle_ts}] Orders already at best prices")
+
+            # Check for newly filled orders and alert via Telegram
+            trades = get_recent_trades(market, 2)
+            for trade in trades:
+                trade_id = str(trade.get("id"))
+                if trade_id not in seen_ids:
+                    msg = _summarise_trade(trade)
+                    send_telegram_message(msg)
+                    seen_ids.add(trade_id)
 
         except Exception as exc:
             logging.exception(f"[{cycle_ts}] Error during cycle: {exc}")
