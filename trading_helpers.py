@@ -39,10 +39,17 @@ def get_positions(market: str) -> Dict[str, float]:
 
 
 def get_open_orders(market: str) -> List[Dict[str, Any]]:
-    """Return open orders for *market*."""
+    """Return open orders for *market* with a valid ``size`` field."""
     client = _auth_client()
     condition_id = _resolve_market_id(market)
-    return client.get_orders(OpenOrderParams(market=condition_id))
+    orders = client.get_orders(OpenOrderParams(market=condition_id))
+
+    # Some library versions return ``size=None`` and ``remainingSize`` with the
+    # actual open amount.  Normalise to always expose ``size``.
+    for o in orders:
+        if o.get("size") is None and o.get("remainingSize") is not None:
+            o["size"] = o.get("remainingSize")
+    return orders
 
 
 def get_recent_trades(market: str, minutes: int) -> List[Dict[str, Any]]:
@@ -86,7 +93,3 @@ def sell_no(market: str, x_cents_above_bid: int, *, size: float | None = None) -
 def cancel_all_orders() -> Dict[str, Any]:
     """Cancel all open orders using :func:`market_prices.cancel_all_orders`."""
     return _cancel_all()
-
-#pos = get_open_orders("0xc3ede0572bba2901df68aac861e1be5a2de742060237d8cf85085e596d210eff")
-pos = get_positions("0xc3ede0572bba2901df68aac861e1be5a2de742060237d8cf85085e596d210eff")
-print(pos)
