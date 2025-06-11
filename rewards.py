@@ -151,4 +151,5 @@ def calculate_reward_per_share(market_id: str) -> float:
     return result
 
 
-calculate_reward_per_share("0x26ed2c7b22d8bbf6789e76bdcd88c22b605df53e88c7b57fb3dc48b7ab259a8f")
+#print(calculate_reward_per_share("0x26ed2c7b22d8bbf6789e76bdcd88c22b605df53e88c7b57fb3dc48b7ab259a8f"))
+print(_get_order_book(_auth_client(), "33064224357523449786613480102704635026181428303479305990935387590344871823925"))
