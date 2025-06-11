@@ -18,6 +18,16 @@ from market_prices import _auth_client, _resolve_market_id
 _TOTAL_EFFECTIVE_DEPTH = Decimal("80000")
 
 
+def _get_order_book(client, token_id: str):
+    """Return order book for ``token_id`` with debug logging."""
+    book = client.get_order_book(token_id)
+    print(
+        f"_get_order_book: token={token_id} "
+        f"bids={len(book.bids)} asks={len(book.asks)}"
+    )
+    return book
+
+
 def _fetch_mid_prices(client, tokens: List[Dict[str, str]]) -> Dict[str, float]:
     """Return mid price for each ``token_id`` in ``tokens``."""
     prices: Dict[str, float] = {}
@@ -25,7 +35,7 @@ def _fetch_mid_prices(client, tokens: List[Dict[str, str]]) -> Dict[str, float]:
         token_id = token.get("token_id")
         if token_id is None:
             continue
-        book = client.get_order_book(token_id)
+        book = _get_order_book(client, token_id)
         if book.bids and book.asks:
             best_bid = Decimal(str(book.bids[-1].price))
             best_ask = Decimal(str(book.asks[-1].price))
@@ -34,6 +44,11 @@ def _fetch_mid_prices(client, tokens: List[Dict[str, str]]) -> Dict[str, float]:
             print(
                 f"_fetch_mid_prices: token={token_id} "
                 f"best_bid={best_bid} best_ask={best_ask} mid={mid_price}"
+            )
+        else:
+            print(
+                f"_fetch_mid_prices: token={token_id} "
+                f"bids={len(book.bids)} asks={len(book.asks)}"
             )
     return prices
 
