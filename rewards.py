@@ -193,4 +193,75 @@ def calculate_reward_per_share(market_id: str) -> float:
     print(f"returning {result}")
     return result
 
-print(calculate_reward_per_share("0x26ed2c7b22d8bbf6789e76bdcd88c22b605df53e88c7b57fb3dc48b7ab259a8f"))
+
+
+def calculate_simple_rewards(market_id: str) -> Dict[str, Dict[str, float | None]]:
+    """Return rough reward/share estimates using top-of-book depth.
+
+    The function fetches the three best bids and asks for each outcome and
+    computes an "effective" size using the simplified formula::
+
+        eff_size = lvl1 + lvl2 / 4 + lvl3 / 9
+
+    Rewards per share are then approximated as ``daily_pool * 100 / eff_size``.
+    The return value maps each outcome ("yes", "no", etc.) to a dictionary with
+    ``reward_per_share_bid`` and ``reward_per_share_ask`` fields.  If either side
+    of the book is empty ``None`` is returned for that value.
+    """
+
+    client = _auth_client()
+    condition_id = _resolve_market_id(market_id)
+    market = cast(Dict[str, Any], client.get_market(condition_id))
+
+    rewards = market.get("rewards", {})
+    daily_pool = Decimal("0")
+    for rate in rewards.get("rates", []):
+        daily_pool += Decimal(str(rate.get("rewards_daily_rate", 0)))
+
+    tokens = market.get("tokens", [])
+    result: Dict[str, Dict[str, float | None]] = {}
+
+    for token in tokens:
+        token_id = token.get("token_id")
+        outcome = token.get("outcome", "").lower()
+        if token_id is None:
+            continue
+
+        bids, asks = _get_top_levels(client, token_id, depth=3)
+
+        def _effective_size(levels: List[Tuple[Decimal, Decimal]]) -> Decimal:
+            size = Decimal("0")
+            if len(levels) > 0:
+                size += levels[0][1]
+            if len(levels) > 1:
+                size += levels[1][1] / Decimal("4")
+            if len(levels) > 2:
+                size += levels[2][1] / Decimal("9")
+            return size
+
+        eff_bid = _effective_size(bids)
+        eff_ask = _effective_size(asks)
+
+        bid_rps: float | None = None
+        ask_rps: float | None = None
+
+        if eff_bid > 0:
+            bid_rps = float((daily_pool * Decimal("100")) / eff_bid)
+        if eff_ask > 0:
+            ask_rps = float((daily_pool * Decimal("100")) / eff_ask)
+
+        result[outcome] = {
+            "reward_per_share_bid": bid_rps,
+            "reward_per_share_ask": ask_rps,
+        }
+
+    return result
+
+
+if __name__ == "__main__":
+    import sys
+
+    if len(sys.argv) != 2:
+        sys.exit(f"Usage: {sys.argv[0]} MARKET_ID")
+
+    print(calculate_simple_rewards(sys.argv[1]))
