@@ -60,6 +60,9 @@ def _get_top_levels(client, token_id: str, depth: int = 3) -> Tuple[List[Tuple[D
         f"bids={[str(p) for p, _ in best_bids]} "
         f"asks={[str(p) for p, _ in best_asks]}"
     )
+
+    print(f"best bids:{best_bids}")
+    print(f"best asks:{best_asks}")
     return best_bids, best_asks
 
 
@@ -189,3 +192,5 @@ def calculate_reward_per_share(market_id: str) -> float:
     result = float(daily_reward / total_size)
     print(f"returning {result}")
     return result
+
+print(calculate_reward_per_share("0x26ed2c7b22d8bbf6789e76bdcd88c22b605df53e88c7b57fb3dc48b7ab259a8f"))
