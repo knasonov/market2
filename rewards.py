@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from decimal import Decimal
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 
 from py_clob_client.clob_types import OpenOrderParams
 from py_clob_client.order_builder.constants import BUY, SELL
@@ -28,28 +28,68 @@ def _get_order_book(client, token_id: str):
     return book
 
 
+def _get_top_levels(client, token_id: str, depth: int = 3) -> Tuple[List[Tuple[Decimal, Decimal]], List[Tuple[Decimal, Decimal]]]:
+    """Return ``depth`` best bids and asks for ``token_id``.
+
+    Each entry is ``(price, size)`` as :class:`~decimal.Decimal` objects.  The
+    order book returned by the API lists prices from worst to best, so the
+    final entries represent the best orders.
+    """
+    book = _get_order_book(client, token_id)
+    best_bids = []
+    best_asks = []
+
+    for b in reversed(book.bids[-depth:]):
+        try:
+            price = Decimal(str(b.price))
+            size = Decimal(str(b.size))
+        except Exception:
+            continue
+        best_bids.append((price, size))
+
+    for a in book.asks[-depth:]:
+        try:
+            price = Decimal(str(a.price))
+            size = Decimal(str(a.size))
+        except Exception:
+            continue
+        best_asks.append((price, size))
+
+    print(
+        f"_get_top_levels: token={token_id} "
+        f"bids={[str(p) for p, _ in best_bids]} "
+        f"asks={[str(p) for p, _ in best_asks]}"
+    )
+    return best_bids, best_asks
+
+
 def _fetch_mid_prices(client, tokens: List[Dict[str, str]]) -> Dict[str, float]:
-    """Return mid price for each ``token_id`` in ``tokens``."""
+    """Return mid price for each ``token_id`` in ``tokens``.
+
+    This uses :func:`_get_top_levels` to examine the best bid and ask for each
+    token.  If either side of the book is empty the token is skipped.
+    """
     prices: Dict[str, float] = {}
     for token in tokens:
         token_id = token.get("token_id")
         if token_id is None:
             continue
-        book = _get_order_book(client, token_id)
-        if book.bids and book.asks:
-            best_bid = Decimal(str(book.bids[-1].price))
-            best_ask = Decimal(str(book.asks[-1].price))
-            mid_price = (best_bid + best_ask) / 2
-            prices[token_id] = float(mid_price)
+        bids, asks = _get_top_levels(client, token_id, depth=3)
+        if not bids or not asks:
             print(
                 f"_fetch_mid_prices: token={token_id} "
-                f"best_bid={best_bid} best_ask={best_ask} mid={mid_price}"
+                f"bids={len(bids)} asks={len(asks)}"
             )
-        else:
-            print(
-                f"_fetch_mid_prices: token={token_id} "
-                f"bids={len(book.bids)} asks={len(book.asks)}"
-            )
+            continue
+
+        best_bid = bids[0][0]
+        best_ask = asks[0][0]
+        mid_price = (best_bid + best_ask) / 2
+        prices[token_id] = float(mid_price)
+        print(
+            f"_fetch_mid_prices: token={token_id} "
+            f"best_bid={best_bid} best_ask={best_ask} mid={mid_price}"
+        )
     return prices
 
 
@@ -149,7 +189,3 @@ def calculate_reward_per_share(market_id: str) -> float:
     result = float(daily_reward / total_size)
     print(f"returning {result}")
     return result
-
-
-#print(calculate_reward_per_share("0x26ed2c7b22d8bbf6789e76bdcd88c22b605df53e88c7b57fb3dc48b7ab259a8f"))
-print(_get_order_book(_auth_client(), "33064224357523449786613480102704635026181428303479305990935387590344871823925"))
