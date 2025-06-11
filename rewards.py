@@ -238,9 +238,13 @@ def calculate_simple_rewards(market_id: str) -> Dict[str, Dict[str, float | None
             if len(levels) > 2:
                 size += levels[2][1] / Decimal("9")
             return size
-
+        
+        
         eff_bid = _effective_size(bids)
+        print(f"Effective size for bids: {eff_bid}")
         eff_ask = _effective_size(asks)
+        print(f"Effective size for asks: {eff_ask}")
+        print("daily pool:", daily_pool)
 
         bid_rps: float | None = None
         ask_rps: float | None = None
