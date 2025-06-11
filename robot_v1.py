@@ -84,9 +84,9 @@ def run_robot(market: str, t_work: int, *, max_amount: float = 400.0, min_amount
             no_pos = float(positions.get("no", 0.0))
             logging.info(f"[{cycle_ts}] Current 'No' position: {no_pos:.2f} shares")
 
-            spread = get_bid_ask_spread(market).get("no", {})
-            best_bid = spread.get("bid")
-            best_ask = spread.get("ask")
+            spread_info = get_bid_ask_spread(market).get("no", {})
+            best_bid = spread_info.get("bid")
+            best_ask = spread_info.get("ask")
             if best_bid is None or best_ask is None:
                 logging.info(f"[{cycle_ts}] Order book empty, sleeping")
                 time.sleep(60)
@@ -96,8 +96,14 @@ def run_robot(market: str, t_work: int, *, max_amount: float = 400.0, min_amount
                 f"[{cycle_ts}] Best bid: {best_bid}, best ask: {best_ask}"
             )
 
-            buy_price = round(best_ask - 0.01, 2)
-            sell_price = round(best_bid + 0.01, 2)
+            distance_cents = 1
+            if best_ask - best_bid > 0.01:
+                spread_cents = round((best_ask - best_bid) * 100)
+                distance_cents = int(spread_cents / 2 + 1)
+            distance = distance_cents / 100
+
+            buy_price = round(best_ask - distance, 2)
+            sell_price = round(best_bid + distance, 2)
             logging.info(
                 f"[{cycle_ts}] Target buy price: {buy_price}, target sell price: {sell_price}"
             )
@@ -142,11 +148,11 @@ def run_robot(market: str, t_work: int, *, max_amount: float = 400.0, min_amount
                     )
                     if side == "BUY":
                         resp = buy_no(
-                            market=market, x_cents_below_ask=1, size=size
+                            market=market, x_cents_below_ask=distance_cents, size=size
                         )
                     else:
                         resp = sell_no(
-                            market=market, x_cents_above_bid=1, size=size
+                            market=market, x_cents_above_bid=distance_cents, size=size
                         )
                     logging.info(f"[{cycle_ts}] Order response: {resp}")
             else:
