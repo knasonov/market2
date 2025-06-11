@@ -29,7 +29,12 @@ def _fetch_mid_prices(client, tokens: List[Dict[str, str]]) -> Dict[str, float]:
         if book.bids and book.asks:
             best_bid = Decimal(str(book.bids[-1].price))
             best_ask = Decimal(str(book.asks[-1].price))
-            prices[token_id] = float((best_bid + best_ask) / 2)
+            mid_price = (best_bid + best_ask) / 2
+            prices[token_id] = float(mid_price)
+            print(
+                f"_fetch_mid_prices: token={token_id} "
+                f"best_bid={best_bid} best_ask={best_ask} mid={mid_price}"
+            )
     return prices
 
 
@@ -45,6 +50,7 @@ def calculate_reward_per_share(market_id: str) -> float:
     client = _auth_client()
     condition_id = _resolve_market_id(market_id)
     market = cast(Dict[str, Any], client.get_market(condition_id))
+    print(f"calculate_reward_per_share: condition_id={condition_id}")
 
     rewards = market.get("rewards", {})
     daily_pool = Decimal("0")
@@ -52,10 +58,14 @@ def calculate_reward_per_share(market_id: str) -> float:
         daily_pool += Decimal(str(rate.get("rewards_daily_rate", 0)))
     max_spread = Decimal(str(rewards.get("max_spread", 3)))  # cents
     promo_multiplier = Decimal("1")
+    print(f"rewards={rewards}")
+    print(f"daily_pool={daily_pool} max_spread={max_spread} promo_multiplier={promo_multiplier}")
 
     tokens = market.get("tokens", [])
     token_lookup = {t.get("token_id"): t.get("outcome", "").lower() for t in tokens}
+    print(f"tokens={tokens}")
     mid_prices = _fetch_mid_prices(client, tokens)
+    print(f"mid_prices={mid_prices}")
 
     orders = client.get_orders(OpenOrderParams(market=condition_id))
     for o in orders:
@@ -63,6 +73,7 @@ def calculate_reward_per_share(market_id: str) -> float:
             o["size"] = o.get("remainingSize")
         if o.get("size") is not None:
             o["size"] = float(o["size"]) / 1_000_000
+    print(f"orders={orders}")
 
     q_one = Decimal("0")
     q_two = Decimal("0")
@@ -83,6 +94,10 @@ def calculate_reward_per_share(market_id: str) -> float:
             continue
         score = promo_multiplier * ((max_spread - distance) / max_spread) ** 2 * size
         outcome = token_lookup.get(token_id)
+        print(
+            f"order token={token_id} side={side} size={size} price={price} mid={mid} "
+            f"distance={distance} score={score} outcome={outcome}"
+        )
         if outcome == "yes" and side == BUY:
             q_one += score
         elif outcome == "no" and side == SELL:
@@ -93,20 +108,29 @@ def calculate_reward_per_share(market_id: str) -> float:
             q_two += score
         total_size += size
 
+    print(f"q_one={q_one} q_two={q_two} total_size={total_size}")
     if q_one == 0 and q_two == 0:
+        print("Both q_one and q_two are zero; returning 0.0")
         return 0.0
 
     yes_token_id = next((tid for tid, out in token_lookup.items() if out == "yes"), None)
     mid_yes = Decimal(str(mid_prices.get(yes_token_id or "", 0.5)))
+    print(f"yes_token_id={yes_token_id} mid_yes={mid_yes}")
 
     if Decimal("0.10") <= mid_yes <= Decimal("0.90"):
         q_min = max(min(q_one, q_two), max(q_one, q_two) / 3)
     else:
         q_min = min(q_one, q_two)
+    print(f"q_min={q_min}")
 
     share = q_min / _TOTAL_EFFECTIVE_DEPTH
     daily_reward = share * daily_pool
+    print(f"share={share} daily_reward={daily_reward}")
 
     if total_size == 0:
-        return float(daily_reward)
-    return float(daily_reward / total_size)
+        result = float(daily_reward)
+        print(f"returning {result} (no open order size)")
+        return result
+    result = float(daily_reward / total_size)
+    print(f"returning {result}")
+    return result
