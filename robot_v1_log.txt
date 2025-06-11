@@ -1017,3 +1017,27 @@ Traceback (most recent call last):
   File "c:\Kos\Polymarket\market2\.venv\Lib\site-packages\py_clob_client\http_helpers\helpers.py", line 42, in request
     raise PolyApiException(resp)
 py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'order 0x1099a18b6462ad409486703c1a14ea0f92c455c0a7afc646fb5dae35ebc63d8d is invalid. Size (1.13) lower than the minimum: 5'}]
+[2025-06-10 22:20:56] --- New cycle ---
+[2025-06-10 22:20:56] Current 'No' position: 8.86 shares
+[2025-06-10 22:20:56] Best bid: 0.86, best ask: 0.87
+[2025-06-10 22:20:56] Target buy price: 0.86, target sell price: 0.87
+[2025-06-10 22:20:56] Buy size 1.14 below minimum
+[2025-06-10 22:20:56] No open orders
+[2025-06-10 22:20:56] Orders not at desired prices – replacing
+[2025-06-10 22:20:56] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-10 22:20:56] Placing SELL order for 8.86 shares at 0.87
+[2025-06-10 22:20:56] Order response: {'errorMsg': '', 'orderID': '0x2f8f2e6e22ed05c6811c29a01ae11cd41ec851feea3b45384ba2e02308b12a6d', 'takingAmount': '', 'makingAmount': '', 'status': 'live', 'transactionsHashes': None, 'success': True}
+[2025-06-10 22:22:02] --- New cycle ---
+[2025-06-10 22:22:02] Current 'No' position: 8.86 shares
+[2025-06-10 22:22:02] Best bid: 0.86, best ask: 0.87
+[2025-06-10 22:22:02] Target buy price: 0.86, target sell price: 0.87
+[2025-06-10 22:22:02] Buy size 1.14 below minimum
+[2025-06-10 22:22:02] Open orders: SELL None@0.87
+[2025-06-10 22:22:02] Orders already at best prices
+[2025-06-10 22:23:05] --- New cycle ---
+[2025-06-10 22:23:05] Current 'No' position: 8.86 shares
+[2025-06-10 22:23:05] Best bid: 0.86, best ask: 0.87
+[2025-06-10 22:23:05] Target buy price: 0.86, target sell price: 0.87
+[2025-06-10 22:23:05] Buy size 1.14 below minimum
+[2025-06-10 22:23:05] Open orders: SELL None@0.87
+[2025-06-10 22:23:05] Orders already at best prices

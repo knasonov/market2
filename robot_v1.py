@@ -71,7 +71,7 @@ def _summarise_trade(trade: Dict[str, object]) -> str:
     return f"{action} {size:.0f} No at {price_cents}c"
 
 
-def run_robot(market: str, t_work: int, *, max_amount: float = 10.0) -> None:
+def run_robot(market: str, t_work: int, *, max_amount: float = 10.0, min_amount) -> None:
     """Run the maker bot on ``market`` for ``t_work`` seconds."""
     end_ts = time.time() + t_work
     seen_ids: Set[str] = set()
