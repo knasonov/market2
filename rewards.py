@@ -47,7 +47,9 @@ def _get_top_levels(client, token_id: str, depth: int = 3) -> Tuple[List[Tuple[D
             continue
         best_bids.append((price, size))
 
-    for a in book.asks[-depth:]:
+    # ``book.asks`` is also sorted from worst to best, so reverse the slice to
+    # return prices from best to worst just like bids.
+    for a in reversed(book.asks[-depth:]):
         try:
             price = Decimal(str(a.price))
             size = Decimal(str(a.size))
