@@ -39,6 +39,21 @@ def get_positions(market: str) -> Dict[str, float]:
     return positions
 
 
+def get_token_outcomes(market: str) -> Dict[str, str]:
+    """Return mapping from token ID to outcome name for ``market``."""
+    client = _auth_client()
+    condition_id = _resolve_market_id(market)
+    market_info = client.get_market(condition_id)
+
+    outcomes: Dict[str, str] = {}
+    for token in market_info.get("tokens", []):
+        token_id = token.get("token_id")
+        outcome = token.get("outcome", "").lower()
+        if token_id is not None:
+            outcomes[str(token_id)] = outcome
+    return outcomes
+
+
 def get_open_orders(market: str) -> List[Dict[str, Any]]:
     """Return open orders for *market* with a valid ``size`` field."""
     client = _auth_client()
