@@ -196,8 +196,7 @@ def run_robot(market: str, t_work: int, *, volume: float = 100.0, min_amount: fl
 
         time.sleep(60)
 
-
-if __name__ == "__main__":
+def batch1():
     if len(sys.argv) < 4:
         sys.exit(
             f"Usage: {sys.argv[0]} MARKET_ID WORK_TIME_SECONDS VOLUME [MIN_AMOUNT]"
@@ -206,3 +205,8 @@ if __name__ == "__main__":
     volume = float(sys.argv[3])
     min_amt = float(sys.argv[4]) if len(sys.argv) > 4 else 5.0
     run_robot(sys.argv[1], int(sys.argv[2]), volume=volume, min_amount=min_amt)
+
+
+
+if __name__ == "__main__":
+    hedge_once("market_id_example")  # Replace with actual market ID for testing
