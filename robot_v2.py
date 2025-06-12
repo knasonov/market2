@@ -67,7 +67,10 @@ def _summarise_trade(trade: Dict[str, object]) -> str:
 
 
 def hedge_once(market: str) -> None:
-    """Try to balance Yes/No holdings by quoting the missing side."""
+    """Balance Yes/No holdings.
+
+    If a BUY order for the needed outcome is already open, hedging is skipped.
+    """
     cycle_ts = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
     positions = get_positions(market)
@@ -88,6 +91,18 @@ def hedge_once(market: str) -> None:
     open_orders = get_open_orders(market)
     token_lookup = get_token_outcomes(market)
 
+    def _has_buy_order(outcome: str) -> bool:
+        """Return ``True`` if a BUY order for *outcome* is already open."""
+        for order in open_orders:
+            if str(order.get("side", "")).upper() != "BUY":
+                continue
+            token_id = order.get("tokenId") or order.get("token_id")
+            if token_id is not None and token_lookup.get(str(token_id)) == outcome:
+                return True
+            if str(order.get("outcome", "")).lower() == outcome:
+                return True
+        return False
+
     if open_orders:
         for o in open_orders:
             logging.info(
@@ -105,11 +120,7 @@ def hedge_once(market: str) -> None:
         logging.info(
             f"[{cycle_ts}] [hedge] Need {diff:.2f} more 'No' at {target_price:.2f} (delta {delta_cents}c)"
         )
-        already_open = any(
-            str(o.get("side")).upper() == "BUY"
-            and token_lookup.get(str(o.get("tokenId") or o.get("token_id"))) == "no"
-            for o in open_orders
-        )
+        already_open = _has_buy_order("no")
         if already_open:
             logging.info(f"[{cycle_ts}] [hedge] Existing 'No' buy order found – skipping")
         else:
@@ -125,11 +136,7 @@ def hedge_once(market: str) -> None:
         logging.info(
             f"[{cycle_ts}] [hedge] Need {diff:.2f} more 'Yes' at {target_price:.2f} (delta {delta_cents}c)"
         )
-        already_open = any(
-            str(o.get("side")).upper() == "BUY"
-            and token_lookup.get(str(o.get("tokenId") or o.get("token_id"))) == "yes"
-            for o in open_orders
-        )
+        already_open = _has_buy_order("yes")
         if already_open:
             logging.info(f"[{cycle_ts}] [hedge] Existing 'Yes' buy order found – skipping")
         else:
