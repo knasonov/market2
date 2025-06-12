@@ -68,13 +68,17 @@ def _summarise_trade(trade: Dict[str, object]) -> str:
 
 def hedge_once(market: str) -> None:
     """Try to balance Yes/No holdings by quoting the missing side."""
+    cycle_ts = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+
     positions = get_positions(market)
     yes_pos = float(positions.get("yes", 0.0))
     no_pos = float(positions.get("no", 0.0))
-    print(f"[hedge] Current positions – Yes: {yes_pos:.2f}, No: {no_pos:.2f}")
+    logging.info(
+        f"[{cycle_ts}] [hedge] Positions – Yes: {yes_pos:.2f}, No: {no_pos:.2f}"
+    )
 
     if abs(yes_pos - no_pos) < 0.0001:
-        print("[hedge] Portfolio already balanced")
+        logging.info(f"[{cycle_ts}] [hedge] Portfolio already balanced")
         return
 
     spread = get_bid_ask_spread(market)
@@ -84,12 +88,22 @@ def hedge_once(market: str) -> None:
     open_orders = get_open_orders(market)
     token_lookup = get_token_outcomes(market)
 
+    if open_orders:
+        for o in open_orders:
+            logging.info(
+                f"[{cycle_ts}] [hedge] Open order detail: "
+                f"side={o.get('side')}, price={o.get('price')}, "
+                f"size={o.get('size')}, token={o.get('tokenId') or o.get('token_id')}"
+            )
+    else:
+        logging.info(f"[{cycle_ts}] [hedge] No open orders")
+
     if yes_pos > no_pos and yes_ask is not None and no_ask is not None:
         diff = yes_pos - no_pos
         target_price = round(1 - yes_ask, 2)
         delta_cents = int(round((no_ask - target_price) * 100))
-        print(
-            f"[hedge] Need {diff:.2f} more 'No' at {target_price:.2f} (delta {delta_cents}c)"
+        logging.info(
+            f"[{cycle_ts}] [hedge] Need {diff:.2f} more 'No' at {target_price:.2f} (delta {delta_cents}c)"
         )
         already_open = any(
             str(o.get("side")).upper() == "BUY"
@@ -97,16 +111,19 @@ def hedge_once(market: str) -> None:
             for o in open_orders
         )
         if already_open:
-            print("[hedge] Existing 'No' buy order found – skipping")
+            logging.info(f"[{cycle_ts}] [hedge] Existing 'No' buy order found – skipping")
         else:
+            logging.info(
+                f"[{cycle_ts}] [hedge] Placing buy_no order for {diff:.2f} at delta {delta_cents}c"
+            )
             resp = buy_no(market, x_cents_below_ask=delta_cents, size=diff)
-            print(f"[hedge] Order response: {resp}")
+            logging.info(f"[{cycle_ts}] [hedge] Order response: {resp}")
     elif no_pos > yes_pos and yes_ask is not None and no_ask is not None:
         diff = no_pos - yes_pos
         target_price = round(1 - no_ask, 2)
         delta_cents = int(round((yes_ask - target_price) * 100))
-        print(
-            f"[hedge] Need {diff:.2f} more 'Yes' at {target_price:.2f} (delta {delta_cents}c)"
+        logging.info(
+            f"[{cycle_ts}] [hedge] Need {diff:.2f} more 'Yes' at {target_price:.2f} (delta {delta_cents}c)"
         )
         already_open = any(
             str(o.get("side")).upper() == "BUY"
@@ -114,12 +131,15 @@ def hedge_once(market: str) -> None:
             for o in open_orders
         )
         if already_open:
-            print("[hedge] Existing 'Yes' buy order found – skipping")
+            logging.info(f"[{cycle_ts}] [hedge] Existing 'Yes' buy order found – skipping")
         else:
+            logging.info(
+                f"[{cycle_ts}] [hedge] Placing buy_yes order for {diff:.2f} at delta {delta_cents}c"
+            )
             resp = buy_yes(market, x_cents_below_ask=delta_cents, size=diff)
-            print(f"[hedge] Order response: {resp}")
+            logging.info(f"[{cycle_ts}] [hedge] Order response: {resp}")
     else:
-        print("[hedge] Order book data missing – cannot hedge now")
+        logging.info(f"[{cycle_ts}] [hedge] Order book data missing – cannot hedge now")
 
 
 def run_robot(market: str, t_work: int, *, volume: float = 100.0, min_amount: float = 5.0) -> None:
