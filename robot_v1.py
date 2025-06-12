@@ -40,9 +40,19 @@ from telegram1 import send_telegram_message
 
 def _has_order(orders: List[Dict[str, Any]], side: str, price: float) -> bool:
     """Return ``True`` if an order with ``side`` and ``price`` exists."""
+
+    side = side.upper()
+    target = round(price, 2)
     for order in orders:
-        if str(order.get("side")).upper() == side.upper() and float(order.get("price")) == price:
+        try:
+            o_side = str(order.get("side", "")).upper()
+            o_price = float(order.get("price"))
+        except Exception:
+            continue
+
+        if o_side == side and round(o_price, 2) == target:
             return True
+
     return False
 
 
@@ -128,15 +138,22 @@ def run_robot(market: str, t_work: int, *, max_amount: float = 40.0, min_amount)
 
             open_orders = get_open_orders(market)
             if open_orders:
-                summary = [
-                    f"{o.get('side')} {o.get('size')}@{o.get('price')}"
-                    for o in open_orders
-                ]
-                logging.info(f"[{cycle_ts}] Open orders: {', '.join(summary)}")
+                for o in open_orders:
+                    logging.info(
+                        f"[{cycle_ts}] Open order detail: "
+                        f"side={o.get('side')}, price={o.get('price')}, "
+                        f"size={o.get('size')}, token={o.get('tokenId') or o.get('token_id')}"
+                    )
             else:
                 logging.info(f"[{cycle_ts}] No open orders")
 
-            prices_ok = all(_has_order(open_orders, s, p) for s, p, _ in desired)
+            prices_ok = True
+            for s, p, _ in desired:
+                found = _has_order(open_orders, s, p)
+                logging.info(
+                    f"[{cycle_ts}] Looking for {s} order at {p:.2f} -> {'found' if found else 'missing'}"
+                )
+                prices_ok = prices_ok and found
 
             if not prices_ok:
                 logging.info(f"[{cycle_ts}] Orders not at desired prices – replacing")
