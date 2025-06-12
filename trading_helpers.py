@@ -60,13 +60,21 @@ def get_open_orders(market: str) -> List[Dict[str, Any]]:
     condition_id = _resolve_market_id(market)
     orders = client.get_orders(OpenOrderParams(market=condition_id))
 
-    # Some library versions return ``size=None`` and ``remainingSize`` with the
-    # actual open amount.  Normalise to always expose ``size``.
+    # Some library versions return the open amount under different keys. Normalise
+    # to always expose ``size`` in token units.
     for o in orders:
-        if o.get("size") is None and o.get("remainingSize") is not None:
-            o["size"] = o.get("remainingSize")
+        if o.get("size") is None:
+            if o.get("remainingSize") is not None:
+                o["size"] = o.get("remainingSize")
+            elif o.get("sizeRemaining") is not None:
+                o["size"] = o.get("sizeRemaining")
+            elif o.get("remaining_amount") is not None:
+                o["size"] = o.get("remaining_amount")
         if o.get("size") is not None:
-            o["size"] = float(o["size"]) / 1_000_000
+            try:
+                o["size"] = float(o["size"]) / 1_000_000
+            except Exception:
+                pass
     return orders
 
 
