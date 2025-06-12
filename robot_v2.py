@@ -14,6 +14,7 @@ from trading_helpers import (
     cancel_all_orders,
     get_bid_ask_spread,
     get_open_orders,
+    get_token_outcomes,
     get_positions,
     get_recent_trades,
 )
@@ -72,6 +73,9 @@ def hedge_once(market: str) -> None:
     yes_ask = spread.get("yes", {}).get("ask")
     no_ask = spread.get("no", {}).get("ask")
 
+    open_orders = get_open_orders(market)
+    token_lookup = get_token_outcomes(market)
+
     if yes_pos > no_pos and yes_ask is not None and no_ask is not None:
         diff = yes_pos - no_pos
         target_price = round(1 - yes_ask, 2)
@@ -79,8 +83,16 @@ def hedge_once(market: str) -> None:
         print(
             f"[hedge] Need {diff:.2f} more 'No' at {target_price:.2f} (delta {delta_cents}c)"
         )
-        resp = buy_no(market, x_cents_below_ask=delta_cents, size=diff)
-        print(f"[hedge] Order response: {resp}")
+        already_open = any(
+            str(o.get("side")).upper() == "BUY"
+            and token_lookup.get(str(o.get("tokenId") or o.get("token_id"))) == "no"
+            for o in open_orders
+        )
+        if already_open:
+            print("[hedge] Existing 'No' buy order found – skipping")
+        else:
+            resp = buy_no(market, x_cents_below_ask=delta_cents, size=diff)
+            print(f"[hedge] Order response: {resp}")
     elif no_pos > yes_pos and yes_ask is not None and no_ask is not None:
         diff = no_pos - yes_pos
         target_price = round(1 - no_ask, 2)
@@ -88,8 +100,16 @@ def hedge_once(market: str) -> None:
         print(
             f"[hedge] Need {diff:.2f} more 'Yes' at {target_price:.2f} (delta {delta_cents}c)"
         )
-        resp = buy_yes(market, x_cents_below_ask=delta_cents, size=diff)
-        print(f"[hedge] Order response: {resp}")
+        already_open = any(
+            str(o.get("side")).upper() == "BUY"
+            and token_lookup.get(str(o.get("tokenId") or o.get("token_id"))) == "yes"
+            for o in open_orders
+        )
+        if already_open:
+            print("[hedge] Existing 'Yes' buy order found – skipping")
+        else:
+            resp = buy_yes(market, x_cents_below_ask=delta_cents, size=diff)
+            print(f"[hedge] Order response: {resp}")
     else:
         print("[hedge] Order book data missing – cannot hedge now")
 
