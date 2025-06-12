@@ -209,4 +209,4 @@ def batch1():
 
 
 if __name__ == "__main__":
-    hedge_once("market_id_example")  # Replace with actual market ID for testing
+    batch1()  # Replace with actual market ID for testing

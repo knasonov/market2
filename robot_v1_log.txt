@@ -1041,3 +1041,55 @@ py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, er
 [2025-06-10 22:23:05] Buy size 1.14 below minimum
 [2025-06-10 22:23:05] Open orders: SELL None@0.87
 [2025-06-10 22:23:05] Orders already at best prices
+[2025-06-12 10:48:03] --- New cycle ---
+[2025-06-12 10:48:03] Current 'No' position: 0.00 shares
+[2025-06-12 10:48:03] Best bid: 0.61, best ask: 0.63
+[2025-06-12 10:48:03] Target buy price: 0.61, target sell price: 0.63
+[2025-06-12 10:48:03] Sell size 0.00 below minimum
+[2025-06-12 10:48:03] No open orders
+[2025-06-12 10:48:03] Orders not at desired prices – replacing
+[2025-06-12 10:48:03] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-12 10:48:03] Placing BUY order for 5.00 shares at 0.61
+[2025-06-12 10:48:03] Error during cycle: PolyApiException[status_code=400, error_message={'error': 'order 0x3a3be66bdfb3ba80599c20fbdccb124416f2193ad7e27fb37e7ea7dee8f289a6 is invalid. Size (4.99) lower than the minimum: 5'}]
+Traceback (most recent call last):
+  File "C:\Kos\Polymarket\market2\robot_v2.py", line 172, in run_robot
+    resp = buy_no(
+        market=market, x_cents_below_ask=distance_cents, size=size
+    )
+  File "C:\Kos\Polymarket\market2\trading_helpers.py", line 92, in buy_no
+    return _buy_no(market=market, x_cents_below_ask=x_cents_below_ask, size=size)
+  File "C:\Kos\Polymarket\market2\market_prices.py", line 79, in buyNo
+    placed_resp = client.post_order(signed, OrderType.GTC)
+  File "C:\Users\nasonov\AppData\Roaming\Python\Python313\site-packages\py_clob_client\client.py", line 452, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "C:\Users\nasonov\AppData\Roaming\Python\Python313\site-packages\py_clob_client\http_helpers\helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "C:\Users\nasonov\AppData\Roaming\Python\Python313\site-packages\py_clob_client\http_helpers\helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'order 0x3a3be66bdfb3ba80599c20fbdccb124416f2193ad7e27fb37e7ea7dee8f289a6 is invalid. Size (4.99) lower than the minimum: 5'}]
+[2025-06-12 10:49:05] --- New cycle ---
+[2025-06-12 10:49:05] Current 'No' position: 0.00 shares
+[2025-06-12 10:49:05] Best bid: 0.61, best ask: 0.63
+[2025-06-12 10:49:05] Target buy price: 0.61, target sell price: 0.63
+[2025-06-12 10:49:05] Sell size 0.00 below minimum
+[2025-06-12 10:49:05] No open orders
+[2025-06-12 10:49:05] Orders not at desired prices – replacing
+[2025-06-12 10:49:05] cancel_all_orders() -> {'not_canceled': {}, 'canceled': []}
+[2025-06-12 10:49:05] Placing BUY order for 5.00 shares at 0.61
+[2025-06-12 10:49:05] Error during cycle: PolyApiException[status_code=400, error_message={'error': 'order 0xb96f7c1ba1f7fcd8fd90acd2bec6f907eb9f489d18a42a9107bad749f75866e7 is invalid. Size (4.99) lower than the minimum: 5'}]
+Traceback (most recent call last):
+  File "C:\Kos\Polymarket\market2\robot_v2.py", line 172, in run_robot
+    resp = buy_no(
+        market=market, x_cents_below_ask=distance_cents, size=size
+    )
+  File "C:\Kos\Polymarket\market2\trading_helpers.py", line 92, in buy_no
+    return _buy_no(market=market, x_cents_below_ask=x_cents_below_ask, size=size)
+  File "C:\Kos\Polymarket\market2\market_prices.py", line 79, in buyNo
+    placed_resp = client.post_order(signed, OrderType.GTC)
+  File "C:\Users\nasonov\AppData\Roaming\Python\Python313\site-packages\py_clob_client\client.py", line 452, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "C:\Users\nasonov\AppData\Roaming\Python\Python313\site-packages\py_clob_client\http_helpers\helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "C:\Users\nasonov\AppData\Roaming\Python\Python313\site-packages\py_clob_client\http_helpers\helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'order 0xb96f7c1ba1f7fcd8fd90acd2bec6f907eb9f489d18a42a9107bad749f75866e7 is invalid. Size (4.99) lower than the minimum: 5'}]
