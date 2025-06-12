@@ -80,6 +80,43 @@ def buyNo(
 
     return placed_resp
 
+def buyYes(
+    market: str,
+    x_cents_below_ask: int,
+    *,
+    size: Optional[float] = None,
+) -> Dict[str, Any]:
+    """Place a limit-buy on the "Yes" outcome of *market*."""
+    client = _auth_client()
+    condition_id = _resolve_market_id(market)
+    market_info = client.get_market(condition_id)
+    yes_token_id: Optional[str] = None
+    for token in market_info.get("tokens", []):
+        if token.get("outcome", "").lower() == "yes":
+            yes_token_id = token.get("token_id")
+            break
+    if yes_token_id is None:
+        raise RuntimeError(f"'Yes' outcome not found for market {market!r}")
+    if size is None:
+        size = max(2.0, float(market_info.get("orderMinSize", 1)))
+    book = client.get_order_book(yes_token_id)
+    if not book.asks:
+        raise RuntimeError("No asks to quote against – order book empty.")
+    best_ask = Decimal(str(book.asks[-1].price))
+    delta = Decimal(x_cents_below_ask) / Decimal("100")
+    price = best_ask - delta
+    if price < Decimal("0.01"):
+        price = Decimal("0.01")
+    order_args = OrderArgs(
+        price=float(price),
+        size=float(size),
+        side=BUY,
+        token_id=yes_token_id,
+    )
+    signed = client.create_order(order_args)
+    placed_resp = client.post_order(signed, OrderType.GTC)
+    return placed_resp
+
 
 def sellNo(
     market: str,
@@ -139,6 +176,43 @@ def sellNo(
     signed = client.create_order(order_args)
     placed_resp = client.post_order(signed, OrderType.GTC)
 
+    return placed_resp
+
+def buyYes(
+    market: str,
+    x_cents_below_ask: int,
+    *,
+    size: Optional[float] = None,
+) -> Dict[str, Any]:
+    """Place a limit-buy on the "Yes" outcome of *market*."""
+    client = _auth_client()
+    condition_id = _resolve_market_id(market)
+    market_info = client.get_market(condition_id)
+    yes_token_id: Optional[str] = None
+    for token in market_info.get("tokens", []):
+        if token.get("outcome", "").lower() == "yes":
+            yes_token_id = token.get("token_id")
+            break
+    if yes_token_id is None:
+        raise RuntimeError(f"'Yes' outcome not found for market {market!r}")
+    if size is None:
+        size = max(2.0, float(market_info.get("orderMinSize", 1)))
+    book = client.get_order_book(yes_token_id)
+    if not book.asks:
+        raise RuntimeError("No asks to quote against – order book empty.")
+    best_ask = Decimal(str(book.asks[-1].price))
+    delta = Decimal(x_cents_below_ask) / Decimal("100")
+    price = best_ask - delta
+    if price < Decimal("0.01"):
+        price = Decimal("0.01")
+    order_args = OrderArgs(
+        price=float(price),
+        size=float(size),
+        side=BUY,
+        token_id=yes_token_id,
+    )
+    signed = client.create_order(order_args)
+    placed_resp = client.post_order(signed, OrderType.GTC)
     return placed_resp
 
 
