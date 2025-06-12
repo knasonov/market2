@@ -61,20 +61,61 @@ def get_open_orders(market: str) -> List[Dict[str, Any]]:
     orders = client.get_orders(OpenOrderParams(market=condition_id))
 
     # Some library versions return the open amount under different keys. Normalise
-    # to always expose ``size`` in token units.
+    # to always expose ``size`` in token units. If ``size`` cannot be found, fetch
+    # the individual order details which typically include ``remainingSize`` or a
+    # similar field.
     for o in orders:
-        if o.get("size") is None:
-            if o.get("remainingSize") is not None:
-                o["size"] = o.get("remainingSize")
-            elif o.get("sizeRemaining") is not None:
-                o["size"] = o.get("sizeRemaining")
-            elif o.get("remaining_amount") is not None:
-                o["size"] = o.get("remaining_amount")
-        if o.get("size") is not None:
+        size = o.get("size")
+        if size is None:
+            for alt in (
+                "remainingSize",
+                "sizeRemaining",
+                "remaining_amount",
+                "remainingAmount",
+                "openAmount",
+                "makingAmount",
+                "takingAmount",
+                "remainingMakingAmount",
+            ):
+                if o.get(alt) is not None and o.get(alt) != "":
+                    size = o.get(alt)
+                    break
+
+        # As a last resort, query the order by ID for more detail
+        if size is None:
+            order_id = (
+                o.get("id")
+                or o.get("orderId")
+                or o.get("order_id")
+            )
+            if order_id:
+                try:
+                    detail = client.get_order(order_id)
+                except Exception:
+                    detail = {}
+                for alt in (
+                    "size",
+                    "remainingSize",
+                    "sizeRemaining",
+                    "remaining_amount",
+                    "remainingAmount",
+                    "openAmount",
+                    "makingAmount",
+                    "takingAmount",
+                    "remainingMakingAmount",
+                ):
+                    if detail.get(alt) is not None and detail.get(alt) != "":
+                        size = detail.get(alt)
+                        break
+
+        if size is not None:
             try:
-                o["size"] = float(o["size"]) / 1_000_000
+                o["size"] = float(size) / 1_000_000
             except Exception:
-                pass
+                try:
+                    o["size"] = float(size)
+                except Exception:
+                    pass
     return orders
 
 
