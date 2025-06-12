@@ -16,6 +16,7 @@ from market_prices import (
     _resolve_market_id,
     buyNo as _buy_no,
     sellNo as _sell_no,
+    buyYes as _buy_yes,
     cancel_all_orders as _cancel_all,
 )
 
@@ -89,6 +90,11 @@ def get_bid_ask_spread(market: str) -> Dict[str, Dict[str, float]]:
 def buy_no(market: str, x_cents_below_ask: int, *, size: float | None = None) -> Dict[str, Any]:
     """Place a buy order using :func:`market_prices.buyNo`."""
     return _buy_no(market=market, x_cents_below_ask=x_cents_below_ask, size=size)
+
+
+def buy_yes(market: str, x_cents_below_ask: int, *, size: float | None = None) -> Dict[str, Any]:
+    """Place a buy order using :func:`market_prices.buyYes`."""
+    return _buy_yes(market=market, x_cents_below_ask=x_cents_below_ask, size=size)
 
 
 def sell_no(market: str, x_cents_above_bid: int, *, size: float | None = None) -> Dict[str, Any]:
